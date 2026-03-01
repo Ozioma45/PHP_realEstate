@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  background-color: rgba(0, 0, 255, 0.034);
+  font-family: poppins, sans-serif;
+}
+
+.card {
+  border: none;
+  background-color: transparent;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-body .prop-feat {
+  background-color: rgba(0, 0, 255, 0.034);
+  border-radius: 5px;
+}
+
+.highlights{
+  background: linear-gradient(to top, #000000, #051d41);
+}
+
+/*About page*/
+.slanted-img {
+  width: 600px;
+  height: auto;
+  clip-path: polygon(
+    0 0,
+    90% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+
+/*testimonials*/
+.testimonials .header-para{
+  color : #a0a0a0
+}
+
+
+/*HOW TO CUSTOMIZE BOOTSTRAP COLORS*/
