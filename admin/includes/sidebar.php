@@ -7,7 +7,7 @@
             <div class="sidebar">
                 
                         <!-- Home -->
-                        <a href="#" class="active">
+                        <a href="dashboard.php" class="active">
                             <i class="bi bi-house-fill"></i>
                             Home
                         </a>
@@ -154,7 +154,7 @@
             <div class="d-none d-md-block col-md-3 col-lg-2 bg-dark sidebar">
                     <div>
                         <!-- Home -->
-                        <a href="#" class="active">
+                        <a href="dashboard.php" class="active">
                             <i class="bi bi-house-fill"></i>
                             Home
                         </a>
@@ -175,10 +175,10 @@
                         </a>
 
                         <div class="collapse ps-4" id="usersMenu">
-                            <a href="#" class="submenu-item">
+                            <a href="admins.php" class="submenu-item">
                                 Admins
                             </a>
-                            <a href="#" class="submenu-item">
+                            <a href="users.php" class="submenu-item">
                                 Users
                             </a>
                             <a href="#" class="submenu-item">

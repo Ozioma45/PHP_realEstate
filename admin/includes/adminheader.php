@@ -1,3 +1,90 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Admin Dashboard</title>
+
+
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            color: #fff;
+            min-height: 100vh;
+            padding:1.5rem;
+        }
+        .sidebar h3{
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+        .sidebar a{
+            color: #adb5bd;
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+            transition: background 0.2s;
+        }
+        .sidebar a:hover, .sidebar a.active{
+            background-color: #495057;
+            color: #fff;
+        }
+
+        .card{
+            transition: transform 0.2s;
+        }
+
+        .card:hover{
+            transform: translateY(-5px);
+        }
+
+        .offcanvas-start{
+            width: 250px;
+        }
+
+        .icon-circle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .table tbody tr {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.005);
+        }
+    </style>
+</head>
+<body>
+ 
+ 
  <!-- Top Navbar -->
 <header class="navbar navbar-expand bg-white shadow-sm px-4 py-3">
 
