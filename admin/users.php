@@ -81,9 +81,9 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
                 <h4 class="mb-3 fw-bold">
-                    Admin
+                    Users
                 </h4>
-                <p>Dashboard /  <span class="text-muted">Admins</span></p>
+                <p>Dashboard /  <span class="text-muted">Users</span></p>
 
                 <!--Tables for users-->
                 <div class="card shadow-sm border-0 mb-4">
@@ -92,7 +92,7 @@
 
                         <!-- Header -->
                         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">   
-                            <h5 class="fw-semibold mb-0">Admin List</h5>
+                            <h5 class="fw-semibold mb-0">Users List</h5>
 
                            <div class="d-flex align-items-center gap-3 flex-wrap">
 
