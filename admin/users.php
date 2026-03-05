@@ -71,16 +71,9 @@
                                                 <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
 
                                                     <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php">
                                                             <i class="bi bi-person"></i>
                                                             View Profile
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-pencil"></i>
-                                                            Edit
                                                         </a>
                                                     </li>
 
@@ -122,16 +115,9 @@
                                                 <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
 
                                                     <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php">
                                                             <i class="bi bi-person"></i>
                                                             View Profile
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-pencil"></i>
-                                                            Edit
                                                         </a>
                                                     </li>
 
@@ -173,16 +159,9 @@
                                                 <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
 
                                                     <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php">
                                                             <i class="bi bi-person"></i>
                                                             View Profile
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-pencil"></i>
-                                                            Edit
                                                         </a>
                                                     </li>
 
