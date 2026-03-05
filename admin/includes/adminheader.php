@@ -80,6 +80,11 @@
             background-color: #f8f9fa;
             transform: scale(1.005);
         }
+
+        .sidebar a[aria-expanded="true"] .bi-chevron-down {
+            transform: rotate(180deg);
+            transition: 0.3s;
+        }
     </style>
 </head>
 <body>

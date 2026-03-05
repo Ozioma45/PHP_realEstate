@@ -24,7 +24,7 @@
                                 Users
                             </span>
 
-                            <i class="bi bi-chevron-down small"></i>
+                            <i class="bi bi-chevron-right small"></i>
                         </a>
 
                         <div class="collapse ps-4" id="usersMenu">
@@ -54,7 +54,7 @@
                                 City & State
                             </span>
 
-                            <i class="bi bi-chevron-down small"></i>
+                            <i class="bi bi-chevron-right small"></i>
                         </a>
 
                         <div class="collapse ps-4" id="settingsMenu">
@@ -79,7 +79,7 @@
                                 Properties
                             </span>
 
-                            <i class="bi bi-chevron-down small"></i>
+                            <i class="bi bi-chevron-right small"></i>
                         </a>
 
                         <div class="collapse ps-4" id="propertiesMenu">
@@ -104,7 +104,7 @@
                                 Contacts & Feedback
                             </span>
 
-                            <i class="bi bi-chevron-down small"></i>
+                            <i class="bi bi-chevron-right small"></i>
                         </a>
 
                         <div class="collapse ps-4" id="contactMenu">
@@ -128,7 +128,7 @@
                                 About
                             </span>
 
-                            <i class="bi bi-chevron-down small"></i>
+                            <i class="bi bi-chevron-right small"></i>
                         </a>
 
                         <div class="collapse ps-4" id="aboutMenu">
