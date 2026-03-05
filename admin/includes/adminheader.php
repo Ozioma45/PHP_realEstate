@@ -85,6 +85,37 @@
             transform: rotate(180deg);
             transition: 0.3s;
         }
+
+        .action-btn{
+    border:none;
+    background:transparent;
+    padding:6px 8px;
+    border-radius:6px;
+    transition:0.2s;
+}
+
+.action-btn:hover{
+    background:#f5f5f5;
+}
+
+.dropdown-menu{
+    min-width:180px;
+    border-radius:10px;
+}
+
+.dropdown-item{
+    border-radius:6px;
+    padding:8px 10px;
+    font-size:14px;
+}
+
+.dropdown-item:hover{
+    background:#f7f7f7;
+}
+
+.table-responsive{
+    overflow: visible !important;
+}
     </style>
 </head>
 <body>

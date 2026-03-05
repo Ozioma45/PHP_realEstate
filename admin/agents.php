@@ -63,7 +63,45 @@
                                         </td>
                                         <td class="text-muted">29 May 2025</td>
                                          <td class="text-end">
-                                            <i class="bi bi-three-dots-vertical text-muted"></i>
+                                            <div class="dropdown action-menu">
+                                                <button class="btn btn-sm action-btn" data-bs-toggle="dropdown">
+                                                    <i class="bi bi-three-dots"></i>
+                                                </button>
+
+                                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-person"></i>
+                                                            View Profile
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-pencil"></i>
+                                                            Edit
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-slash-circle"></i>
+                                                            Suspend
+                                                        </a>
+                                                    </li>
+
+                                                    <li><hr class="dropdown-divider"></li>
+
+                                                    <li>
+                                                        <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-trash"></i>
+                                                            Delete
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
                                         </td>
                                     </tr>
 
@@ -76,7 +114,45 @@
                                         </td>
                                         <td class="text-muted">29 Mar 2025</td>
                                          <td class="text-end">
-                                            <i class="bi bi-three-dots-vertical text-muted"></i>
+                                            <div class="dropdown action-menu">
+                                                <button class="btn btn-sm action-btn" data-bs-toggle="dropdown">
+                                                    <i class="bi bi-three-dots"></i>
+                                                </button>
+
+                                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-person"></i>
+                                                            View Profile
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-pencil"></i>
+                                                            Edit
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-slash-circle"></i>
+                                                            Suspend
+                                                        </a>
+                                                    </li>
+
+                                                    <li><hr class="dropdown-divider"></li>
+
+                                                    <li>
+                                                        <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-trash"></i>
+                                                            Delete
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
                                         </td>
                                     </tr>
 
@@ -89,7 +165,45 @@
                                         </td>
                                         <td class="text-muted">29 May 2025</td>
                                         <td class="text-end">
-                                            <i class="bi bi-three-dots-vertical text-muted"></i>
+                                            <div class="dropdown action-menu">
+                                                <button class="btn btn-sm action-btn" data-bs-toggle="dropdown">
+                                                    <i class="bi bi-three-dots"></i>
+                                                </button>
+
+                                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-person"></i>
+                                                            View Profile
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-pencil"></i>
+                                                            Edit
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-slash-circle"></i>
+                                                            Suspend
+                                                        </a>
+                                                    </li>
+
+                                                    <li><hr class="dropdown-divider"></li>
+
+                                                    <li>
+                                                        <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="#">
+                                                            <i class="bi bi-trash"></i>
+                                                            Delete
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
                                         </td>
                                     </tr>
 
