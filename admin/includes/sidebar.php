@@ -181,10 +181,10 @@
                             <a href="users.php" class="submenu-item">
                                 Users
                             </a>
-                            <a href="#" class="submenu-item">
+                            <a href="agents.php" class="submenu-item">
                                 Agents
                             </a>
-                            <a href="#" class="submenu-item">
+                            <a href="builders.php" class="submenu-item">
                                 Builders
                             </a>
                         </div>
