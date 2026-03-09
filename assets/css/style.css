@@ -39,4 +39,27 @@ body {
 }
 
 
-/*HOW TO CUSTOMIZE BOOTSTRAP COLORS*/
+/*property info*/
+.main-image{
+overflow:hidden;
+border-radius:10px;
+}
+
+.main-image img{
+transition: transform .4s ease;
+cursor: zoom-in;
+}
+
+.main-image:hover img{
+transform: scale(1.2);
+}
+
+.thumb{
+cursor:pointer;
+transition:0.2s;
+}
+
+.thumb:hover{
+opacity:0.8;
+transform:scale(1.05);
+}

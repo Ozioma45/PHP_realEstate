@@ -271,6 +271,42 @@
 </div>
 <!-- End of .container -->
 
+<script>
+  const thumbs = document.querySelectorAll(".thumb");
+const mainImage = document.getElementById("mainImage");
+
+thumbs.forEach(img => {
+
+img.addEventListener("click", function(){
+
+mainImage.src = this.src;
+
+});
+
+});
+
+const container = document.querySelector(".main-image");
+const image = container.querySelector("img");
+
+container.addEventListener("mousemove", (e) => {
+
+const rect = container.getBoundingClientRect();
+
+const x = ((e.clientX - rect.left) / rect.width) * 100;
+const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+image.style.transformOrigin = `${x}% ${y}%`;
+image.style.transform = "scale(2)";
+
+});
+
+container.addEventListener("mouseleave", () => {
+
+image.style.transform = "scale(1)";
+image.style.transformOrigin = "center";
+
+});
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 crossorigin="anonymous"></script>
