@@ -229,10 +229,10 @@
                         </a>
 
                         <div class="collapse ps-4" id="propertiesMenu">
-                            <a href="#" class="submenu-item">
+                            <a href="propertyadd.php" class="submenu-item">
                                 Add Property
                             </a>
-                            <a href="#" class="submenu-item">
+                            <a href="propertyview.php" class="submenu-item">
                                 View Properties
                             </a>
                         </div>
