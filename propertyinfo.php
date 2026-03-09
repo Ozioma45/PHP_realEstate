@@ -48,87 +48,87 @@
 
 
 <section class="mt-5 mb-5">
-<div class="container">
+    <div class="container">
 
-<div class="row g-4">
+        <div class="row g-4">
 
-<!-- IMAGE GALLERY -->
-<div class="col-lg-7">
+            <!-- IMAGE GALLERY -->
+            <div class="col-lg-7">
 
-<div class="property-gallery">
+                <div class="property-gallery">
 
-<!-- Main Image -->
-<div class="main-image mb-3">
-<img id="mainImage" src="assets/img/prop1.jpg"  class="img-fluid rounded">
-</div>
+                    <!-- Main Image -->
+                    <div class="main-image mb-3">
+                        <img id="mainImage" src="assets/img/prop1.jpg"  class="img-fluid rounded">
+                    </div>
 
-<!-- Thumbnails -->
-<div class="row g-2">
+                    <!-- Thumbnails -->
+                    <div class="row g-2">
 
-<div class="col-4">
-<img src="assets/img/prop1.jpg" class="img-fluid rounded thumb">
-</div>
+                        <div class="col-4">
+                            <img src="assets/img/prop1.jpg" class="img-fluid rounded thumb">
+                        </div>
 
-<div class="col-4">
-<img src="assets/img/prop2.jpg"  class="img-fluid rounded thumb">
-</div>
+                        <div class="col-4">
+                            <img src="assets/img/prop2.jpg"  class="img-fluid rounded thumb">
+                        </div>
 
-<div class="col-4">
-<img src="assets/img/prop2.jpg"  class="img-fluid rounded thumb">
-</div>
+                        <div class="col-4">
+                            <img src="assets/img/prop2.jpg"  class="img-fluid rounded thumb">
+                        </div>
 
-</div>
+                    </div>
 
-</div>
-</div>
+                </div>
+            </div>
 
 
-<!-- PROPERTY INFO -->
-<div class="col-lg-5">
+            <!-- PROPERTY INFO -->
+            <div class="col-lg-5">
 
-<h3 class="fw-bold mb-2">
-Universal King’s Lodge
-</h3>
+                <h3 class="fw-bold mb-2">
+                    Universal King’s Lodge
+                </h3>
 
-<p class="text-muted mb-3">
-Port Harcourt • Listed Feb 2026
-</p>
+                <p class="text-muted mb-3">
+                    Port Harcourt • Listed Feb 2026
+                </p>
 
-<h4 class="text-primary fw-bold mb-4">
-₦8,500,000
-</h4>
+                <h4 class="text-primary fw-bold mb-4">
+                    ₦8,500,000
+                </h4>
 
-<div class="d-flex gap-4 mb-4">
+                <div class="d-flex gap-4 mb-4">
 
-<div>
-<i class="bi bi-door-open"></i>
-<strong>3</strong> Beds
-</div>
+                    <div>
+                        <i class="bi bi-door-open"></i>
+                        <strong>3</strong> Beds
+                    </div>
 
-<div>
-<i class="bi bi-badge-wc"></i>
-<strong>2</strong> Baths
-</div>
+                    <div>
+                        <i class="bi bi-badge-wc"></i>
+                        <strong>2</strong> Baths
+                    </div>
 
-<div>
-<i class="bi bi-aspect-ratio"></i>
-<strong>1200</strong> sqft
-</div>
+                    <div>
+                        <i class="bi bi-aspect-ratio"></i>
+                        <strong>1200</strong> sqft
+                    </div>
 
-</div>
+                </div>
 
-<p class="text-muted">
-Universal King’s Lodge is a luxury residential apartment located in a quiet and secure environment. It offers spacious rooms, modern fittings, and a peaceful environment ideal for families.
-</p>
+                <p class="text-muted">
+                    Universal King’s Lodge is a luxury residential apartment located in a quiet and secure environment. It offers spacious rooms, modern fittings, and a peaceful environment ideal for families.
+                </p>
 
-<button class="btn btn-primary w-100 mt-3">
-Contact Agent
-</button>
+                <button class="btn btn-primary w-100 mt-3">
+                    <a href="contactagents.php" class="text-white text-decoration-none">Contact Agent</a>
+                </button>
 
-</div>
+            </div>
 
-</div>
-</div>
+        </div>
+    </div>
 </section>
 
 

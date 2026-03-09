@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=poppins:wght@300;400;500;600;700&display=swap");
 
 body {
   background-color: rgba(0, 0, 255, 0.034);
@@ -8,7 +8,7 @@ body {
 .card {
   border: none;
   background-color: transparent;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .card-body .prop-feat {
@@ -16,7 +16,7 @@ body {
   border-radius: 5px;
 }
 
-.highlights{
+.highlights {
   background: linear-gradient(to top, #000000, #051d41);
 }
 
@@ -24,42 +24,10 @@ body {
 .slanted-img {
   width: 600px;
   height: auto;
-  clip-path: polygon(
-    0 0,
-    90% 0,
-    100% 100%,
-    0 100%
-  );
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
 }
-
 
 /*testimonials*/
-.testimonials .header-para{
-  color : #a0a0a0
-}
-
-
-/*property info*/
-.main-image{
-overflow:hidden;
-border-radius:10px;
-}
-
-.main-image img{
-transition: transform .4s ease;
-cursor: zoom-in;
-}
-
-.main-image:hover img{
-transform: scale(1.2);
-}
-
-.thumb{
-cursor:pointer;
-transition:0.2s;
-}
-
-.thumb:hover{
-opacity:0.8;
-transform:scale(1.05);
+.testimonials .header-para {
+  color: #a0a0a0;
 }
