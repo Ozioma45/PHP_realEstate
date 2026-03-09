@@ -6,36 +6,28 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
                 <h4 class="mb-3 fw-bold">
-                    Cities
+                    States
                 </h4>
-                <p>Dashboard /  <span class="text-muted">Cities</span></p>
+                <p>Dashboard /  <span class="text-muted">States</span></p>
 
-                <!--Add city-->
-                <div class="card shadow-sm border-0 mb-4">
+                <!--Add state-->
+                <div class="card shadow-sm border-0 mb-4 py-4">
                     <div class="card-body">
-                        <h5 class="fw-semibold mb-3">Add New City</h5>
+                        <h5 class="fw-semibold mb-4">Add New State</h5>
 
                         <hr>
 
                         <form class="row g-3">
                             <div class="col-md-6">
-                                <label for="cityName" class="form-label">City Name</label>
-                                <input type="text" class="form-control" id="cityName" placeholder="Enter city name">
+                                <label for="stateName" class="form-label">State Details</label>
+                                <input type="text" class="form-control" id="stateName" placeholder="Enter state name">
                             </div>
-                            <div class="col-md-6">
-                                <label for="stateSelect" class="form-label">State</label>
-                                <select id="stateSelect" class="form-select">
-                                    <option selected>Choose...</option>
-                                    <option value="1">State 1</option>
-                                    <option value="2">State 2</option>
-                                    <option value="3">State 3</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Add City</button>
+                            <div class="col-6 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary">Add State</button>
                             </div>
                         </form>
                     </div>
+                </div>
 
                 <!--Tables for cities-->
                 <div class="card shadow-sm border-0 mb-4">
@@ -72,7 +64,6 @@
                                 <thead class="table-light">
                                     <tr class="text-muted small text-uppercase">
                                         <th>#</th>
-                                        <th>City</th>
                                         <th>State</th>
                                         <th>Action</th>
                                     </tr>
@@ -81,7 +72,6 @@
 
                                     <tr>
                                         <td class="fw-semibold">1</td>
-                                        <td>Asaba</td>
                                         <td class="text-muted">Delta</td>
                                         <td class="text-start">
                                             <div class="dropdown action-menu">
@@ -114,7 +104,6 @@
 
                                     <tr>
                                         <td class="fw-semibold">2</td>
-                                        <td>Onitsha</td>
                                         <td class="text-muted">Anambra State</td>
                                         <td class="text-start">
                                             <div class="dropdown action-menu">
@@ -147,7 +136,6 @@
 
                                     <tr>
                                         <td class="fw-semibold">3</td>
-                                        <td>Jalingo</td>
                                         <td class="text-muted">Taraba State</td>
                                         <td class="text-start">
                                             <div class="dropdown action-menu">

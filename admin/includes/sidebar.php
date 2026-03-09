@@ -205,10 +205,10 @@
                         </a>
 
                         <div class="collapse ps-4" id="settingsMenu">
-                            <a href="#" class="submenu-item">
+                            <a href="city.php" class="submenu-item">
                                 City
                             </a>
-                            <a href="#" class="submenu-item">
+                            <a href="state.php" class="submenu-item">
                                 State
                             </a>
                         </div>
