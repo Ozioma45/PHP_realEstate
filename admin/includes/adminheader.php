@@ -49,6 +49,7 @@
 
         .card{
             transition: transform 0.2s;
+            overflow: visible !important;
         }
 
         .card:hover{
@@ -101,6 +102,9 @@
 .dropdown-menu{
     min-width:180px;
     border-radius:10px;
+    z-index: 9999 !important;
+    position: absolute;
+    margin-top:6px;
 }
 
 .dropdown-item{
