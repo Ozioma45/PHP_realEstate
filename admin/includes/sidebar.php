@@ -253,7 +253,7 @@
                         </a>
 
                         <div class="collapse ps-4" id="propertiesMenu">
-                            <a href="#" class="submenu-item">
+                            <a href="contactlist.php" class="submenu-item">
                                 Contact
                             </a>
                             <a href="#" class="submenu-item">
