@@ -22,6 +22,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
         }
+
+        .admin-hearder-left{
+            cursor: pointer;
+        }
+
         .sidebar {
             color: #fff;
             min-height: 100vh;
@@ -120,6 +125,7 @@
 .table-responsive{
     overflow: visible !important;
 }
+
     </style>
 </head>
 <body>
@@ -129,7 +135,7 @@
 <header class="navbar navbar-expand bg-white shadow-sm px-4 py-3">
 
     <!-- Left Side -->
-    <div class="d-flex align-items-center gap-3">
+    <div class="d-flex align-items-center gap-3 admin-hearder-left">
         <button class="btn btn-light d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
             <i class="bi bi-list"></i>
         </button>
