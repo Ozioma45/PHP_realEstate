@@ -20,6 +20,10 @@ body {
   background: linear-gradient(to top, #000000, #051d41);
 }
 
+.contact {
+  font-size: 12px;
+}
+
 /*About page*/
 .slanted-img {
   width: 600px;

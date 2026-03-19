@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,13 +25,36 @@
 
    <body>
     <div class="contact bg-dark text-white d-flex justify-content-between p-2 pt-3 px-4 d-none d-lg-flex">
-        <div>
-            <span class="me-3"><i class="bi bi-facebook me-1 color-primary"></i></span>
-            <span class="me-3"><i class="bi bi-twitter me-1"></i></span>
-            <span class="me-3"><i class="bi bi-instagram me-1"></i></span>
+        <div class="d-flex gap-3">
+            <span><i class="bi bi-telephone-fill me-1"></i> +91 1234567890</span>
+            <span><i class="bi bi-envelope-fill me-1"></i> info@zubaproperties.com</span>
         </div>
-        <span><i class="bi bi-telephone-fill me-1"></i> +91 1234567890</span>
-        <span><i class="bi bi-envelope-fill me-1"></i> info@zubaproperties.com</span>
+
+
+        <?php if(isset($_SESSION['user_id'])): ?>
+
+        <!-- SHOW WHEN LOGGED IN -->
+         <span>
+            <i class="bi bi-person-circle me-1"></i> 
+            <a href="profile.php" class="text-white text-decoration-none">
+                Logout (<?php echo $_SESSION['user_name']; ?>)
+            </a>
+         </span>
+
+        <?php else: ?>
+
+        <span class="d-flex align-items-center gap-2">
+            <span>
+                <i class="bi bi-person-circle me-1"></i> 
+                <a href="login.php" class="text-white text-decoration-none">Login
+            </span> 
+            | 
+            <span>
+                <i class="bi bi-person-plus me-1"></i> 
+                <a href="register.php" class="text-white text-decoration-none">Register</a>
+            </span>
+        </span>
+        <?php endif; ?>
     </div>
 
     <header class="container-fluid mb-5 mb-lg-0">
@@ -56,17 +84,37 @@
                             <a class="nav-link" href="property.php">Properties</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 Agent/Builder
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="agents.php">Agent</a></li>
                                 <li><a class="dropdown-item" href="builders.php">Builder</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login/Register</a>
+
+                        <?php if(isset($_SESSION['user_id'])): ?>
+
+                        <!-- SHOW WHEN LOGGED IN -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                My Account
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="features.php">My Property</a></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
                         </li>
+
+                        <?php else: ?>
+
+                            <!-- SHOW WHEN NOT LOGGED IN -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Login/Register</a>
+                            </li>
+
+                        <?php endif; ?>
                     </ul>
                     
                     <button type="button" class="btn btn-primary rounded-pill">Submit Property</button>
