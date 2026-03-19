@@ -277,10 +277,10 @@
                         </a>
 
                         <div class="collapse ps-4" id="aboutMenu">
-                            <a href="#" class="submenu-item">
+                            <a href="about-add.php" class="submenu-item">
                                 Add About
                             </a>
-                            <a href="#" class="submenu-item">
+                            <a href="about-view.php" class="submenu-item">
                                 View About
                             </a>
                         </div>

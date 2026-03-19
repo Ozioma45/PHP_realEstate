@@ -13,6 +13,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <!--TinyMCE Editor -->
+    <script src="https://cdn.tiny.cloud/1/zgz2833xnti1loopx4hfh2usqleqgdkrqff8s26rk5o4haii/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+    <script>
+tinymce.init({
+  selector: '#editor',
+  height: 300,
+  menubar: true,
+  plugins: [
+    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap',
+    'preview', 'anchor', 'searchreplace', 'visualblocks',
+    'code', 'fullscreen', 'insertdatetime', 'media',
+    'table', 'help', 'wordcount'
+  ],
+  toolbar:
+    'undo redo | formatselect | bold italic underline | \
+     alignleft aligncenter alignright alignjustify | \
+     bullist numlist outdent indent | link image | code fullscreen'
+});
+</script>
+    
     <title>Admin Dashboard</title>
 
 
