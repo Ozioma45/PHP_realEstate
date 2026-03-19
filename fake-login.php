@@ -1,10 +1,13 @@
 <?php
 session_start();
 
-// Fake user login
-$_SESSION['user_id'] = 1;
-$_SESSION['user_name'] = "Ozioma";
-$_SESSION['email'] = "oziomaegole@gmail.com";
+$_SESSION['user'] = [
+    'name' => 'Ozioma Egole',
+    'email' => 'oziomaegole2@gmail.com',
+    'phone' => '8166365570',
+    'role' => 'Agent',
+    'image' => 'assets/img/blue.jpg'
+];
 
-header("Location: index.php");
+header("Location: profile.php");
 exit();

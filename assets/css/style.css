@@ -3,6 +3,8 @@
 body {
   background-color: rgba(0, 0, 255, 0.034);
   font-family: poppins, sans-serif;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .card {

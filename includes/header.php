@@ -36,7 +36,7 @@ session_start();
         <!-- SHOW WHEN LOGGED IN -->
          <span>
             <i class="bi bi-person-circle me-1"></i> 
-            <a href="profile.php" class="text-white text-decoration-none">
+            <a href="logout.php" class="text-white text-decoration-none">
                 Logout (<?php echo $_SESSION['user_name']; ?>)
             </a>
          </span>
