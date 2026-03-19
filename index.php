@@ -1,7 +1,4 @@
-<!doctype html>
-<html lang="en">
-  
-    <?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
     <section class="hero d-flex align-items-center justify-content-between">
         <div class="container d-flex align-items-center justify-content-center flex-column flex-lg-row mt-5 mt-lg-0">
@@ -178,8 +175,3 @@
     
 
     <?php include 'includes/footer.php'; ?>
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
-</html>

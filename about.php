@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
    <?php include 'includes/header.php'; ?>
     
     <section class="mt-5">
@@ -39,5 +37,3 @@
     </section>
 
    <?php include 'includes/footer.php'; ?>
-</body>
-</html>
