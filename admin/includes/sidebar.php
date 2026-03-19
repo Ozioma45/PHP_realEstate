@@ -256,7 +256,7 @@
                             <a href="contactlist.php" class="submenu-item">
                                 Contact
                             </a>
-                            <a href="#" class="submenu-item">
+                            <a href="feedback.php" class="submenu-item">
                                 Feedback
                             </a>
                         </div>
