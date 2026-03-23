@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+$_SESSION['user_id'] = 1; 
+$_SESSION['user_name'] = 'Ozioma Egole';
+
 $_SESSION['user'] = [
     'name' => 'Ozioma Egole',
     'email' => 'oziomaegole2@gmail.com',

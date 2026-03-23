@@ -46,12 +46,12 @@ session_start();
         <span class="d-flex align-items-center gap-2">
             <span>
                 <i class="bi bi-person-circle me-1"></i> 
-                <a href="login.php" class="text-white text-decoration-none">Login
+                <a href="login.php" class="text-white text-decoration-none">Login</a>
             </span> 
             | 
             <span>
                 <i class="bi bi-person-plus me-1"></i> 
-                <a href="register.php" class="text-white text-decoration-none">Register</a>
+                <a href="login.php" class="text-white text-decoration-none">Register</a>
             </span>
         </span>
         <?php endif; ?>
