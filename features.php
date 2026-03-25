@@ -33,8 +33,8 @@ $user = $_SESSION['user'];
     </style>
 
 <div class="mb-4 d-flex justify-content-between align-items-center top-profile">
-        <h2>Profile</h2>
-        <p>Home > <span class="text-primary">Profile</span> </p>
+        <h2>Properties</h2>
+        <p>Home > <span class="text-primary">Properties</span> </p>
 </div>
 
 <div class="container mt-5">

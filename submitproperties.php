@@ -1,15 +1,49 @@
-<?php include 'includes/adminheader.php'; ?>
-<?php include 'includes/sidebar.php'; ?>
+<?php
+include 'includes/header.php'; 
 
-<main class="col-md-9 ms-sm-auto col-lg-10 py-4">
+// Redirect if not logged in
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
 
-    <h4 class="fw-bold mb-2">Add Property</h4>
-    <p class="text-muted mb-4">Dashboard / Property / Add Property</p>
+$user = $_SESSION['user'];
+?>
 
-    <div class="card shadow-sm border-0">
+ <style>
+        .profile-card { background: white; padding: 20px; border-radius: 10px; }
+        .profile-img { 
+            width: 100%; 
+            border-radius: 10px; 
+            object-fit: cover; 
+            object-position:top;
+            height: 300px;
+        }
+
+        .top-profile{
+            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), url('assets/img/prop1.jpg');
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: top;
+            color:#fff;
+            padding: 0px 5rem;
+            position: relative;
+        }
+    </style>
+
+<div class="mb-4 d-flex justify-content-between align-items-center top-profile">
+        <h2>Submit Property</h2>
+        <p>Home > <span class="text-primary">Submit Property</span> </p>
+</div>
+
+<main class="col-md-10 m-auto col-lg-10 py-4">
+
+<div class="card shadow-sm border-0">
+
         <div class="card-body">
 
-            <h5 class="fw-semibold mb-4">Property Details</h5>
+            <h5 class="fw-semibold mb-4">Basic Information</h5>
 
             <form class="row g-4" method="POST" enctype="multipart/form-data">
 
@@ -97,9 +131,11 @@
 
             </form>
 
-</div>
-</div>
+        </div>
+    </div>
 
+    </div>
 </main>
 
-<?php include 'includes/footer.php'; ?>
+ <?php include 'includes/footer.php'; ?>
+

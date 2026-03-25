@@ -117,7 +117,7 @@ session_start();
                         <?php endif; ?>
                     </ul>
                     
-                    <button type="button" class="btn btn-primary rounded-pill">Submit Property</button>
+                    <a type="button" class="btn btn-primary rounded-pill" href="submitproperties.php">Submit Property</a>
                 </div>
             </div>
         </nav>
