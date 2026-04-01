@@ -1,3 +1,9 @@
+<style>
+  footer a {
+    text-decoration: none;
+  }
+</style>
+
 <!-- Remove the container if you want to extend the Footer to full width. -->
 <div class="container-fluid my-5">
 
@@ -143,9 +149,9 @@
                 </a>
             </h6>
             <p>
-              Here you can use rows and columns to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+              We create futures and build legacies with 
+              innovative real estate solutions tailored 
+              to your dreams.
             </p>
           </div>
           <!-- Grid column -->
@@ -154,18 +160,18 @@
 
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <h6 class="text-uppercase mb-4 font-weight-bold">Support</h6>
             <p>
-              <a class="text-white">MDBootstrap</a>
+              <a class="text-white">Our Agents</a>
             </p>
             <p>
-              <a class="text-white">MDWordPress</a>
+              <a class="text-white">Our Builders</a>
             </p>
             <p>
-              <a class="text-white">BrandFlow</a>
+              <a class="text-white">Terms and Conditions</a>
             </p>
             <p>
-              <a class="text-white">Bootstrap Angular</a>
+              <a class="text-white">Faqs</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -178,16 +184,16 @@
               Useful links
             </h6>
             <p>
-              <a class="text-white">Your Account</a>
+              <a class="text-white">Home</a>
             </p>
             <p>
-              <a class="text-white">Become an Affiliate</a>
+              <a class="text-white">About Us</a>
             </p>
             <p>
-              <a class="text-white">Shipping Rates</a>
+              <a class="text-white">Properties</a>
             </p>
             <p>
-              <a class="text-white">Help</a>
+              <a class="text-white">Contact Us</a>
             </p>
           </div>
 
@@ -197,10 +203,10 @@
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-            <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-            <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
-            <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            <p><i class="fas fa-home mr-3"></i> Victoria Island, Lagos</p>
+            <p><i class="fas fa-envelope mr-3"></i> info@zubaproperties.com</p>
+            <p><i class="fas fa-phone mr-3"></i> 0816 636 5570</p>
+            <p><i class="fas fa-print mr-3"></i> 0901 192 1098</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -218,8 +224,8 @@
             <!-- Copyright -->
             <div class="p-3">
               © 2020 Copyright:
-              <a class="text-white" href="https://mdbootstrap.com/"
-                 >MDBootstrap.com</a
+              <a class="text-white" href="https://myportfolio-lime-two.vercel.app/"
+                 >oziomaegole</a
                 >
             </div>
             <!-- Copyright -->
@@ -230,32 +236,29 @@
           <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
             <!-- Facebook -->
             <a
-               class="btn btn-outline-light btn-floating m-1"
-               class="text-white"
+               class="btn btn-outline-light btn-floating m-1 text-white"
                role="button"
                ><i class="fab fa-facebook-f"></i
               ></a>
 
             <!-- Twitter -->
             <a
-               class="btn btn-outline-light btn-floating m-1"
-               class="text-white"
+               class="btn btn-outline-light btn-floating m-1 text-white"
+               
                role="button"
                ><i class="fab fa-twitter"></i
               ></a>
 
             <!-- Google -->
             <a
-               class="btn btn-outline-light btn-floating m-1"
-               class="text-white"
+               class="btn btn-outline-light btn-floating m-1 text-white"
                role="button"
                ><i class="fab fa-google"></i
               ></a>
 
             <!-- Instagram -->
             <a
-               class="btn btn-outline-light btn-floating m-1"
-               class="text-white"
+               class="btn btn-outline-light btn-floating m-1 text-white"
                role="button"
                ><i class="fab fa-instagram"></i
               ></a>
