@@ -103,7 +103,7 @@ session_start();
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                                 <li><a class="dropdown-item" href="features.php">My Property</a></li>
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="actions/logout.php">Logout</a></li>
                             </ul>
                         </li>
 

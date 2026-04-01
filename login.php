@@ -13,7 +13,7 @@
     
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form action="#">
+            <form action="actions/register.php" method="POST" enctype="multipart/form-data">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -21,14 +21,18 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <input type="text" name="name" placeholder="Name" />
+                <input type="email" name="email" placeholder="Email" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="text" name="phone" placeholder="Phone Number" />
+                <input type="file" name="image" placeholder="Profile Image" />
+                <button type="submit" name="register">Sign Up</button>
+
+
                 <div class="switch">
                     <p class="mobile-switch">
                         Already have an account?
-                        <span id="mobileSignIn">Sign In</span>
+                        <button id="mobileSignIn" type="button">Sign In</button>
                     </p>
                 </div>
                 
@@ -36,7 +40,7 @@
         </div>
 
         <div class="form-container sign-in">
-            <form action="#">
+            <form action="actions/login.php" method="POST">
                 <h1>Sign in</h1>
                 <div class="social-icons">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -44,14 +48,16 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
                 <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <button type="submit" name="login">Sign In</button>
+
+
                 <div class="switch">
                     <p class="mobile-switch">
                         Don’t have an account?
-                        <span id="mobileSignUp">Sign Up</span>
+                        <button id="mobileSignUp">Sign Up</button>
                     </p>
                 </div>
 
@@ -65,6 +71,7 @@
                     <p>To keep connected with us please login with your personal info</p>
                     <button class="ghost" id="signIn">Sign In</button>
                 </div>
+
                 <div class="toggle-panel toggle-right">
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>

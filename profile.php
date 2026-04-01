@@ -2,12 +2,24 @@
 include 'includes/header.php'; 
 
 // Redirect if not logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
-    exit();
+    exit;
 }
 
-$user = $_SESSION['user'];
+require_once "config/database.php";
+
+$db = (new Database())->connect();
+
+$stmt = $db->prepare("SELECT * FROM users WHERE id = :id");
+$stmt->execute([':id' => $_SESSION['user_id']]);
+
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    die("User not found");
+}
+?>
 ?>
 
  <style>
@@ -68,12 +80,12 @@ $user = $_SESSION['user'];
         <!-- RIGHT: PROFILE INFO -->
         <div class="col-md-6">
             <div class="profile-card">
-                <img src="<?= $user['image']; ?>" class="profile-img mb-3" alt="Profile Image">
+                <img src="uploads/<?php echo $user['image'] ?? 'default.jpg'; ?>" width="100" class="profile-img mb-3" alt="Profile Image">
 
-                <p><strong>Name:</strong> <?= $user['name']; ?></p>
-                <p><strong>Email:</strong> <?= $user['email']; ?></p>
-                <p><strong>Contact:</strong> <?= $user['phone']; ?></p>
-                <p><strong>Role:</strong> <?= $user['role']; ?></p>
+                <p><strong>Name:</strong> <?php echo $user['name']; ?></p>
+                <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
+                <p><strong>Contact:</strong> <?php echo $user['phone']; ?></p>
+                <p><strong>Role:</strong> <?php echo $user['role']; ?></p>
 
                 <a href="logout.php" class="btn btn-danger mt-3">Logout</a>
             </div>
