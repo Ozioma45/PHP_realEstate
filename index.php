@@ -1,52 +1,125 @@
 <?php include 'includes/header.php'; ?>
+    <style>
+        .hero-section {
+            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), url('assets/img/prop2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding:20px 15px;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
 
-    <section class="hero d-flex align-items-center justify-content-between">
-        <div class="container d-flex align-items-center justify-content-center flex-column flex-lg-row mt-5 mt-lg-0">
-            <div class="text-center text-lg-start">
-                <h1 class="fs-1 fw-bold">Find It. Love It. Own It.</h1>
-                <p class="lead">Discover the best properties in town with Zuba Properties.</p>
-                <a href="#" class="btn btn-primary btn-lg rounded">Explore Now</a>
+
+    <section class="hero-section text-center text-white m-2 m-md-5 rounded shadow">
+
+        <!--Top text-->
+        <div class="container pt-2">
+             <p class="mb-2">Welcome to Zuba Properties</p>
+        </div>
+
+
+        <div class="container">
+
+           
+            
+            <h1 class="display-5 fw-bold">Welcome to Zuba Properties</h1>
+            <p class="lead mb-4">Your Trusted Real Estate Partner</p>
+
+             <a href="#" class="btn btn-primary btn-lg rounded mb-4">Explore Listings</a>
+
+        </div>
+
+
+        <!--Search home-->
+        <div class="container">
+
+            <div class="px-md-5 px-3 py-3 rounded shadow">
+
+                <form class="row g-3">
+
+                    <div class="col-12 col-sm-6 col-lg-2">
+                        <select class="form-select">
+                            <option selected>Property Type</option>
+                            <option>Apartment</option>
+                            <option>House</option>
+                            <option>Villa</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-2">
+                        <select class="form-select">
+                            <option selected>Min Price</option>
+                            <option>$100,000</option>
+                            <option>$200,000</option>
+                            <option>$300,000</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-2">
+                        <select class="form-select">
+                            <option selected>Max Price</option>
+                            <option>$500,000</option>
+                            <option>$800,000</option>
+                            <option>$1,000,000</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-2">
+                        <select class="form-select">
+                            <option selected>Status</option>
+                            <option>For Sale</option>
+                            <option>For Rent</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-2">
+                        <input type="text" class="form-control" placeholder="Enter City">
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-2 d-grid">
+                        <button type="submit" class="btn btn-primary rounded">
+                            Search
+                        </button>
+                    </div>
+
+                </form>
+
             </div>
 
-            <div class="hero-img">
-                <img src="assets/img/rb_26815.png" alt="House img" class="img-fluid"  >
-            </div>
         </div>
     </section>
 
-    <section class="findHome">
-        <div class="container bg-light p-5 rounded shadow">
-            <h2 class="text-center mb-4">Find Your Dream Home</h2>
-            <form class="row g-3">
-                
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Property Type</option>
-                        <option value="1">Apartment</option>
-                        <option value="2">House</option>
-                        <option value="3">Villa</option>
-                    </select>
-                </div>
+    
 
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Select Status</option>
-                        <option value="1">For Sale</option>
-                        <option value="2">For Rent</option>
-                    </select>
-                </div>
+   
 
-                <div class="col-md-3">
-                    <input type="number" class="form-control" placeholder="Enter City">
+     <hr>
+
+    <section class="about-us">
+        <div class="container my-5">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6">
+                    <img src="assets/img/prop1.jpg" alt="House img" class="img-fluid rounded shadow">
                 </div>
-                <div class="col-md-3 d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg rounded">Search</button>
+                <div class="col-md-6">
+                    <h2 class="fs-2 fw-bold">Your Trusted Real Estate Partner</h2>
+                    <p class="lead">At Zuba Properties, we are committed to helping you find your dream home. With our extensive listings and expert guidance, we make the home buying process easy and enjoyable.</p>
+                    <a href="#" class="btn btn-primary btn-lg rounded">Learn More</a>
                 </div>
-            </form>
+            </div>    
         </div>
     </section>
 
-    <hr>
+
+      <hr>
+
+   
 
     <section class="whatWedo">
         <div class="container mt-5 p-5">
