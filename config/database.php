@@ -1,10 +1,27 @@
 <?php
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
 class Database {
-    private $host = "localhost";
-    private $db_name = "php_realestate";
-    private $username = "ozioma1";
-    private $password = "Oziblink@2846";
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
+
+    public function __construct() {
+        $this->host = $_ENV['DB_HOST'];
+        $this->db_name = $_ENV['DB_NAME'];
+        $this->username = $_ENV['DB_USER'];
+        $this->password = $_ENV['DB_PASS'];
+    }
 
     public function connect() {
         try {

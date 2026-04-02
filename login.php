@@ -50,7 +50,7 @@
                 <span>or use your account</span>
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
-                <a href="#">Forgot your password?</a>
+                <a href="forgot-password.php">Forgot your password?</a>
                 <button type="submit" name="login">Sign In</button>
 
 
