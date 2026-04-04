@@ -14,6 +14,7 @@ require '../vendor/autoload.php';
 $db = (new Database())->connect();
 
 $email = $_POST['email'];
+$ip = $_SERVER['REMOTE_ADDR'];
 
 // Check if user exists
 $stmt = $db->prepare("SELECT * FROM users WHERE email = :email");
@@ -25,6 +26,16 @@ if ($user) {
 // Generate secure token
 $token = bin2hex(random_bytes(32));
 $expires = date("Y-m-d H:i:s", strtotime("+1 hour"));
+
+$stmt = $db->prepare("
+    INSERT INTO password_resets_attempts (email, ip_address)
+    VALUES (:email, :ip)
+");
+
+$stmt->execute([
+    ':email' => $email,
+    ':ip' => $ip
+]);
 
 // Save token
 $stmt = $db->prepare("
@@ -41,6 +52,23 @@ $stmt->execute([
 
 // Create reset link
 $link = "http://localhost/real-estate1/reset-password.php?token=$token";
+
+$stmt = $db->prepare("
+    SELECT COUNT(*) FROM password_resets_attempts
+    WHERE (email = :email OR ip_address = :ip)
+    AND created_at > (NOW() - INTERVAL 1 HOUR)
+");
+
+$stmt->execute([
+    ':email' => $email,
+    ':ip' => $ip
+]);
+
+$attempts = $stmt->fetchColumn();
+
+if ($attempts >= 3) {
+    die("Too many reset requests. Try again later.");
+}
 
 
 
