@@ -7,10 +7,19 @@ require_once "../classes/User.php";
 $db = (new Database())->connect();
 $user = new User($db);
 
-$name = htmlspecialchars($_POST['name']);
-$email = htmlspecialchars($_POST['email']);
-$phone = htmlspecialchars($_POST['phone']);
+$name = trim($_POST['name']);
+$email = trim($_POST['email']);
+$phone = trim($_POST['phone']);
 $password = $_POST['password'];
+
+$stmt = $db->prepare("SELECT id FROM users WHERE email = :email");
+$stmt->execute([':email' => $email]);
+
+if ($stmt->fetch()) {
+    $_SESSION['error'] = "Email already exists!";
+    header("Location: ../login.php");
+    exit;
+}
 
 $imageName = null;
 
@@ -28,11 +37,15 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0){
     $allowed = ['jpg', 'jpeg', 'png'];
 
     if(!in_array($ext, $allowed)){
-        die("Invalid file type. Only JPG, JPEG, and PNG are allowed.");
+        $_SESSION['error'] = "Only JPG, JPEG, PNG allowed";
+        header("Location: ../login.php");
+        exit;
     }
 
     if ($fileSize > 2 * 1024 * 1024) {
-        die("File size exceeds 2MB limit.");
+        $_SESSION['error'] = "Image too large (max 2MB)";
+        header("Location: ../login.php");
+        exit;
     }
 
     //generate name
@@ -45,6 +58,9 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0){
 if ($user->register($name, $email, $phone, $password, $imageName)) {
     $_SESSION['success'] = "Registration successful!";
     header("Location: ../login.php");
+    exit;
 } else {
-    echo "Registration failed";
+    $_SESSION['error'] = "Registration failed. Email may already be in use.";
+    header("Location: ../login.php");
+    exit;
 }

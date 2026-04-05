@@ -1,25 +1,32 @@
 <?php
+session_start();
 require_once "../config/database.php";
 
 $db = (new Database())->connect();
 
-$token = $_POST['token'];
+$token = $_POST['token'] ?? null;
 $password = trim($_POST['password']);
 $confirm = $_POST['confirm_password'];
 
-if (empty($token)) {
-    die("Invalid token");
+if (!$token) {
+    $_SESSION['error'] = "Invalid token";
+    header("Location: ../forgot-password.php");
+    exit;
 }
 
 if (strlen($password) < 6) {
-    die("Password must be at least 6 characters.");
+    $_SESSION['error'] = "Password must be at least 6 characters";
+    header("Location: ../reset-password.php?token=$token");
+    exit;
 }
 
 if ($password !== $confirm) {
-    die("Passwords do not match");
+    $_SESSION['error'] = "Passwords do not match";
+    header("Location: ../reset-password.php?token=$token");
+    exit;
 }
 
-// Find user with token
+// Check token
 $stmt = $db->prepare("
     SELECT id FROM users 
     WHERE reset_token = :token 
@@ -30,13 +37,14 @@ $stmt->execute([':token' => $token]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
-    die("Invalid request");
+    $_SESSION['error'] = "Invalid or expired link";
+    header("Location: ../forgot-password.php");
+    exit;
 }
 
-// Hash new password
+// Update password
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 
-// Update password & clear token
 $stmt = $db->prepare("
     UPDATE users 
     SET password = :password, reset_token = NULL, reset_expires = NULL
@@ -48,8 +56,6 @@ $stmt->execute([
     ':id' => $user['id']
 ]);
 
-if ($stmt->rowCount() > 0) {
-    echo "Password reset successful. <a href='../login.php'>Login</a>";
-} else {
-    echo "Something went wrong. Try again.";
-}
+$_SESSION['success'] = "Password reset successful!";
+header("Location: ../login.php");
+exit;

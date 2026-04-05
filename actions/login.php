@@ -4,7 +4,7 @@ session_start();
 require_once "../config/database.php";
 require_once "../classes/User.php";
 
-  $db = (new Database())->connect();
+$db = (new Database())->connect();
 
 $ip = $_SERVER['REMOTE_ADDR'];
 $email = $_POST['email'];
@@ -24,7 +24,9 @@ $stmt->execute([
 $attempts = $stmt->fetchColumn();
 
 if ($attempts >= 5) {
-    die("Too many login attempts. Try again later.");
+    $_SESSION['error'] = "Too many login attempts. Try again later.";
+    header("Location: ../login.php");
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -33,14 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? null;
 
     if (!$email || !$password) {
-        die("Email and password are required");
+        $_SESSION['error'] = "Email and password are required";
+        header("Location: ../login.php");
+        exit;
     }
 
   
     $userObj = new User($db);
-
-    $email = $_POST['email'];
-    $password = $_POST['password'];
 
     $user = $userObj->login($email, $password);
 
@@ -48,17 +49,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user['name'];
         $_SESSION['role'] = $user['role'];
-
+        
+        $_SESSION['success'] = "Login successful!";
         header("Location: ../index.php");
-
-        // Clear attempts
-        $stmt = $db->prepare("
-            DELETE FROM login_attempts WHERE email = :email
-        ");
+         // Clear attempts
+        $stmt = $db->prepare(
+            "DELETE FROM login_attempts WHERE email = :email"
+        );
 
         $stmt->execute([':email' => $email]);
+
+        exit;
     } else {
-        echo "Invalid email or password";
+        $_SESSION['error'] = "Invalid email or password";
+        header("Location: ../login.php");
 
         // Log failed attempt
         $stmt = $db->prepare("
@@ -70,8 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':email' => $email,
             ':ip' => $ip
         ]);
+
+        exit;
     }
 
 } else {
-    echo "Invalid request method";
+    $_SESSION['error'] = "Invalid request method";
+    header("Location: ../login.php");
+    exit;
 }

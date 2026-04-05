@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once "../config/database.php";
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -67,7 +69,9 @@ $stmt->execute([
 $attempts = $stmt->fetchColumn();
 
 if ($attempts >= 3) {
-    die("Too many reset requests. Try again later.");
+    $_SESSION['error'] = "Too many reset requests. Try again later.";
+    header("Location: ../forgot-password.php");
+    exit;
 }
 
 
@@ -84,7 +88,7 @@ if ($attempts >= 3) {
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
-        $mail->setFrom('joecre8ive@gmail.com', 'Zuba Properties');
+        $mail->setFrom($_ENV['MAIL_USER'], 'Zuba Properties');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
@@ -104,5 +108,7 @@ if ($attempts >= 3) {
 
 }
 
-    // Always show same message
-echo "If the email exists, a reset link has been sent.";
+    // Always show same message to prevent email enumeration
+    $_SESSION['success'] = "If the email exists, a reset link has been sent.";
+    header("Location: ../forgot-password.php");
+    exit;
