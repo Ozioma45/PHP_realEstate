@@ -19,16 +19,35 @@ session_start();
         <div class="form-container sign-up">
             <form action="actions/register.php" method="POST" enctype="multipart/form-data">
                 <h1>Create Account</h1>
-                <div class="social-icons">
+              <!--   <div class="social-icons">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email for registration</span>
+                <span>or use your email for registration</span> -->
                 <input type="text" name="name" placeholder="Name" />
                 <input type="email" name="email" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
                 <input type="text" name="phone" placeholder="Phone Number" />
+                
+               <div class="radio-group">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="role" value="user" id="user" required>
+                        <label class="form-check-label" for="user">User</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="role" value="agent" id="agent">
+                        <label class="form-check-label" for="agent">Agent</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="role" value="builder" id="builder">
+                        <label class="form-check-label" for="builder">Builder</label>
+                    </div>
+                </div>
+
                 <input type="file" name="image" placeholder="Profile Image" />
                 <button type="submit" name="register">Sign Up</button>
 
@@ -46,12 +65,12 @@ session_start();
         <div class="form-container sign-in">
             <form action="actions/login.php" method="POST">
                 <h1>Sign in</h1>
-                <div class="social-icons">
+                <!-- <div class="social-icons">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your account</span>
+                <span>or use your account</span> -->
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
                 <a href="forgot-password.php">Forgot your password?</a>

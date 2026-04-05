@@ -9,22 +9,30 @@ class User {
     }
 
     // Register user
-public function register($name, $email, $phone, $password, $image) {
+public function register($name, $email, $phone, $password, $role, $image) {
 
     $hashed = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO users (name, email, phone, password, image)
-              VALUES (:name, :email, :phone, :password, :image)";
+    $query = "INSERT INTO users (name, email, phone, password, role, image)
+              VALUES (:name, :email, :phone, :password, :role, :image)";
 
     $stmt = $this->conn->prepare($query);
 
-    return $stmt->execute([
-        ':name' => $name,
-        ':email' => $email,
-        ':phone' => $phone,
-        ':password' => $hashed,
-        ':image' => $image
-    ]);
+    try {
+        return $stmt->execute([
+            ':name' => $name,
+            ':email' => $email,
+            ':phone' => $phone,
+            ':password' => $hashed,
+            ':role' => $role,
+            ':image' => $image
+        ]);
+    } catch (PDOException $e) {
+        if ($e->getCode() == 23000) {
+            return false; // duplicate email
+        }
+        throw $e;
+    }
 }
 
     // Login user

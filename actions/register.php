@@ -10,6 +10,7 @@ $user = new User($db);
 $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $phone = trim($_POST['phone']);
+$role = $_POST['role'] ?? 'user';
 $password = $_POST['password'];
 
 $stmt = $db->prepare("SELECT id FROM users WHERE email = :email");
@@ -55,7 +56,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0){
 
 }
 
-if ($user->register($name, $email, $phone, $password, $imageName)) {
+if ($user->register($name, $email, $phone, $password, $role, $imageName)) {
     $_SESSION['success'] = "Registration successful!";
     header("Location: ../login.php");
     exit;
