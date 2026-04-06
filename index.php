@@ -1,4 +1,21 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+
+    include 'includes/header.php'; 
+    require_once "config/database.php";
+
+    $db = (new Database())->connect();
+
+    $stmt = $db->prepare("
+        SELECT p.*, u.name AS owner_name
+        FROM properties p
+        LEFT JOIN users u ON p.user_id = u.id
+        ORDER BY p.created_at DESC
+    ");
+
+    $stmt->execute();
+    $properties = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
     <style>
         .hero-section {
             background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), url('assets/img/prop2.jpg');
@@ -169,80 +186,42 @@
 
     <section class="properties pb-5">
         <div class="container mt-5">
+
             <h2 class="text-center mb-5">Featured Properties</h2>
+
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow">
-                         <!-- Make image container relative -->
-                        <div class="position-relative">
-                            <img src="assets/img/prop1.jpg" class="card-img-top" alt="Property 1">
 
-                            <!-- Sale / Rent Badge -->
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2">
-                                For Sale
-                            </span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Modern Apartment in City Center</h5>
-                            <p class="card-text"><i class="bi bi-geo-alt-fill me-2 text-primary"></i>123 Main Street, City Center</p>
-                            <p class="card-text p-2 prop-feat">2 Beds, 2 Baths, 1200 sqft</p>
-                             
-                             <p class="card-text mb-0 d-flex justify-content-between align-items-center ">
-                                    <span><i class="bi bi-person-fill me-2 text-primary"></i>by : Ozioma Egole</span>
-                                    <span><strong>$550,000</strong></span>
-                            </p>   
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow">
-                        <!-- Make image container relative -->
-                        <div class="position-relative">
-                            <img src="assets/img/prop3.jpg" class="card-img-top" alt="Property 1">
+                <?php foreach($properties as $property): ?>
 
-                            <!-- Sale / Rent Badge -->
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2">
-                                For Sale
-                            </span>
-                        </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow">
 
+                             <!-- Make image container relative -->
+                            <div class="position-relative">
+                                <img src="uploads/<?= htmlspecialchars($property['main_image']) ?>" class="card-img-top" alt="<?= htmlspecialchars($property['title']) ?>">
 
-
-                        <div class="card-body">
-                            <h5 class="card-title">Spacious Family Home</h5>
-                            <p class="card-text"><i class="bi bi-geo-alt-fill me-2 text-primary"></i>456 Oak Avenue, Suburbia</p>
-                            <p class="card-text p-2 prop-feat">4 Beds, 3 Baths, 2500 sqft</p>
-                             
-                             <p class="card-text mb-0 d-flex justify-content-between align-items-center ">
-                                    <span><i class="bi bi-person-fill me-2 text-primary"></i>by : Ozioma Egole</span>
-                                    <span><strong>$550,000</strong></span>
-                            </p>   
+                                <!-- Sale / Rent Badge -->
+                                <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2">
+                                    <?= htmlspecialchars($property['status']) ?>
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><?= htmlspecialchars($property['title']) ?></h5>
+                                <p class="card-text"><i class="bi bi-geo-alt-fill me-2 text-primary"></i><?= htmlspecialchars($property['location']) ?></p> 
+                                <p class="card-text p-2 prop-feat"><?= htmlspecialchars($property['bedrooms']) ?> Beds, <?= htmlspecialchars($property['bathrooms']) ?> Baths, <?= htmlspecialchars($property['size']) ?> sqft</p>
+                                 
+                                 <p class="card-text mb-0 d-flex justify-content-between align-items-center ">
+                                        <span><i class="bi bi-person-fill me-2 text-primary"></i>by : <?= htmlspecialchars($property['owner_name'] ?? 'Unknown') ?></span>
+                                        <span><strong>$<?= number_format($property['price'], 2) ?></strong></span>
+                                </p>   
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow">
-                         <!-- Make image container relative -->
-                        <div class="position-relative">
-                            <img src="assets/img/prop2.jpg" class="card-img-top" alt="Property 1">
+                <?php endforeach; ?>
+            </div>    
 
-                            <!-- Sale / Rent Badge -->
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 px-3 py-2">
-                                For Sale
-                            </span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Luxury Waterfront Villa</h5>
-                            <p class="card-text"><i class="bi bi-geo-alt-fill me-2 text-primary"></i>123 Main Street, City Center</p>
-                            <p class="card-text p-2 prop-feat">3 Beds, 3 Baths, 1800 sqft</p>
-                             
-                             <p class="card-text mb-0 d-flex justify-content-between align-items-center ">
-                                    <span><i class="bi bi-person-fill me-2 text-primary"></i>by : Ozioma Egole</span>
-                                    <span><strong>$550,000</strong></span>
-                            </p>   
-                        </div>
-                    </div>
-                </div>
+
+                
     </section>
 
     
