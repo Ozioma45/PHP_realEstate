@@ -16,7 +16,7 @@
         $total = $db->query("SELECT COUNT(*) FROM users")->fetchColumn();
         $pages = ceil($total / $limit);
 
-        $stmt = $db->prepare("SELECT * FROM users WHERE role = 'user' LIMIT $limit OFFSET $offset");
+        $stmt = $db->prepare("SELECT * FROM users LIMIT $limit OFFSET $offset");
         $stmt->execute();
         $users = $stmt->fetchAll();
     ?>

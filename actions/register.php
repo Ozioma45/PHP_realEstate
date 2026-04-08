@@ -7,11 +7,17 @@ require_once "../classes/User.php";
 $db = (new Database())->connect();
 $user = new User($db);
 
+$allowed_roles = ['agent', 'builder'];
+
 $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $phone = trim($_POST['phone']);
-$role = $_POST['role'] ?? 'user';
+$role = $_POST['role'] ?? 'agent';
 $password = $_POST['password'];
+
+if (!in_array($role, $allowed_roles)) {
+    $role = 'agent'; // fallback
+}
 
 $stmt = $db->prepare("SELECT id FROM users WHERE email = :email");
 $stmt->execute([':email' => $email]);

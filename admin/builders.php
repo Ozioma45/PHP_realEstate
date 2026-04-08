@@ -1,6 +1,23 @@
-     <?php include 'includes/adminheader.php'; ?>
+  <?php 
+    
+        include 'includes/adminheader.php'; 
+        include 'includes/sidebar.php'; 
 
-    <?php include 'includes/sidebar.php'; ?>
+        require_once "../config/database.php";
+        $db = (new Database())->connect();   
+
+        $page = $_GET['page'] ?? 1;
+        $limit = $_GET['limit'] ?? 10;
+        $offset = ($page - 1) * $limit;
+
+        // total users
+        $total = $db->query("SELECT COUNT(*) FROM users")->fetchColumn();
+        $pages = ceil($total / $limit);
+
+        $stmt = $db->prepare("SELECT * FROM users WHERE role = 'builder' LIMIT $limit OFFSET $offset");
+        $stmt->execute();
+        $users = $stmt->fetchAll();
+    ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
                 <h4 class="mb-3 fw-bold">
@@ -52,137 +69,53 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr>
-                                        <td class="fw-semibold">1</td>
-                                        <td>John Doe</td>
-                                        <td class="text-muted">john.doe@example.com</td>
-                                        <td class="text-muted">
-                                            08166365570
-                                        </td>
-                                        <td class="text-muted">29 May 2025</td>
-                                        <td class="text-end">
-                                            <div class="dropdown action-menu">
-                                                <button class="btn btn-sm action-btn" data-bs-toggle="dropdown">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </button>
+                                     <?php foreach ($users as $index => $user): ?>
+                                        <tr>
+                                            <td class="fw-semibold"><?php echo $index + 1; ?></td>
+                                            <td><?php echo htmlspecialchars($user['name']); ?></td>
+                                            <td class="text-muted"><?php echo htmlspecialchars($user['email']); ?></td>
+                                            <td class="text-muted">
+                                                <?php echo htmlspecialchars($user['phone']); ?>
+                                            </td>
+                                            <td class="text-muted"><?php echo date('d M Y', strtotime($user['created_at'])); ?></td>
 
-                                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
+                                            <td class="text-end">
+                                                <div class="dropdown action-menu">
+                                                    <button class="btn btn-sm action-btn" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots"></i>
+                                                    </button>
 
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php">
-                                                            <i class="bi bi-person"></i>
-                                                            View Profile
-                                                        </a>
-                                                    </li>
+                                                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
 
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-slash-circle"></i>
-                                                            Suspend
-                                                        </a>
-                                                    </li>
+                                                        <li>
+                                                            <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php?id=<?php echo $user['id']; ?>">
+                                                                <i class="bi bi-person"></i>
+                                                                View Profile
+                                                            </a>
+                                                        </li>
 
-                                                    <li><hr class="dropdown-divider"></li>
+                                                        <li>
+                                                            <a class="dropdown-item d-flex align-items-center gap-2" href="actions/suspend-user.php?id=<?php echo $user['id']; ?>">
+                                                                <i class="bi bi-slash-circle"></i>
+                                                                Suspend
+                                                            </a>
+                                                        </li>
 
-                                                    <li>
-                                                        <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-trash"></i>
-                                                            Delete
-                                                        </a>
-                                                    </li>
+                                                        <li><hr class="dropdown-divider"></li>
 
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                        <li>
+                                                            <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="actions/delete-user.php?id=<?php echo $user['id']; ?>" >
+                                                                <i class="bi bi-trash"></i>
+                                                                Delete
+                                                            </a>
+                                                        </li>
 
-                                    <tr>
-                                        <td class="fw-semibold">2</td>
-                                        <td>Jane Smith</td>
-                                        <td class="text-muted">jane.smith@example.com</td>
-                                        <td class="text-muted">
-                                            09011921098
-                                        </td>
-                                        <td class="text-muted">29 Mar 2025</td>
-                                        <td class="text-end">
-                                            <div class="dropdown action-menu">
-                                                <button class="btn btn-sm action-btn" data-bs-toggle="dropdown">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </button>
-
-                                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
-
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php">
-                                                            <i class="bi bi-person"></i>
-                                                            View Profile
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-slash-circle"></i>
-                                                            Suspend
-                                                        </a>
-                                                    </li>
-
-                                                    <li><hr class="dropdown-divider"></li>
-
-                                                    <li>
-                                                        <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-trash"></i>
-                                                            Delete
-                                                        </a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="fw-semibold">3</td>
-                                        <td>Emily Johnson</td>
-                                        <td class="text-muted">emily.johnson@example.com</td>
-                                        <td class="text-muted">
-                                            08123456789
-                                        </td>
-                                        <td class="text-muted">29 May 2025</td>
-                                        <td class="text-end">
-                                            <div class="dropdown action-menu">
-                                                <button class="btn btn-sm action-btn" data-bs-toggle="dropdown">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </button>
-
-                                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
-
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php">
-                                                            <i class="bi bi-person"></i>
-                                                            View Profile
-                                                        </a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a class="dropdown-item d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-slash-circle"></i>
-                                                            Suspend
-                                                        </a>
-                                                    </li>
-
-                                                    <li><hr class="dropdown-divider"></li>
-
-                                                    <li>
-                                                        <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="#">
-                                                            <i class="bi bi-trash"></i>
-                                                            Delete
-                                                        </a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    
+                                    <?php endforeach; ?>
 
                                 </tbody>
                             </table>
@@ -190,19 +123,37 @@
 
                          <!-- Pagination -->
                         <div class="d-flex justify-content-between align-items-center mt-4">
-                            <small class="text-muted">Showing 1 to 3 of 3 entries</small>
+
+                            <small class="text-muted">
+                                Showing <?php echo ($offset + 1); ?> 
+                                to <?php echo min($offset + $limit, $total); ?> 
+                                of <?php echo $total; ?> entries</small>
+
                             <nav>
+
                                 <ul class="pagination pagination-sm mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#">Previous</a>
+
+                                    <!-- Previous -->
+                                    <li class="page-item <?php if ($page <= 1) echo 'disabled'; ?>">
+                                        <a class="page-link" href="?page=<?php echo $page - 1; ?>&limit=<?php echo $limit; ?>">Prev</a>
                                     </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1</a>
+
+                                    <!-- Page Numbers -->
+                                    <?php for ($i = 1; $i <= $pages; $i++): ?>
+                                        <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
+                                            <a class="page-link" href="?page=<?php echo $i; ?>&limit=<?php echo $limit; ?>">
+                                                <?php echo $i; ?>
+                                            </a>
+                                        </li>
+                                    <?php endfor; ?>
+
+                                    <!-- Next -->
+                                    <li class="page-item <?php if ($page >= $pages) echo 'disabled'; ?>">
+                                        <a class="page-link" href="?page=<?php echo $page + 1; ?>&limit=<?php echo $limit; ?>">Next</a>
                                     </li>
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
+
                                 </ul>
+
                             </nav>
                         </div>
 

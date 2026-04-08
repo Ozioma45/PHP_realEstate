@@ -33,11 +33,6 @@ session_start();
                <div class="radio-group">
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="role" value="user" id="user" required>
-                        <label class="form-check-label" for="user">User</label>
-                    </div>
-
-                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="role" value="agent" id="agent">
                         <label class="form-check-label" for="agent">Agent</label>
                     </div>
