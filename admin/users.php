@@ -137,6 +137,12 @@
 
                                 <ul class="pagination pagination-sm mb-0">
 
+                                    <!-- Previous -->
+                                    <li class="page-item <?php if ($page <= 1) echo 'disabled'; ?>">
+                                        <a class="page-link" href="?page=<?php echo $page - 1; ?>&limit=<?php echo $limit; ?>">Prev</a>
+                                    </li>
+
+                                    <!-- Page Numbers -->
                                     <?php for ($i = 1; $i <= $pages; $i++): ?>
                                         <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
                                             <a class="page-link" href="?page=<?php echo $i; ?>&limit=<?php echo $limit; ?>">
@@ -144,6 +150,11 @@
                                             </a>
                                         </li>
                                     <?php endfor; ?>
+
+                                    <!-- Next -->
+                                    <li class="page-item <?php if ($page >= $pages) echo 'disabled'; ?>">
+                                        <a class="page-link" href="?page=<?php echo $page + 1; ?>&limit=<?php echo $limit; ?>">Next</a>
+                                    </li>
 
                                 </ul>
 
