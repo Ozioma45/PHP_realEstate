@@ -1,8 +1,15 @@
+    <?php
+        include 'includes/adminheader.php'; 
 
-   
-    <?php include 'includes/adminheader.php'; ?>
+        include 'includes/sidebar.php';
 
-    <?php include 'includes/sidebar.php'; ?>
+        $id = $_GET['id'];
+
+        $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->execute([$id]);
+        $user = $stmt->fetch();
+
+    ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
                 <h4 class="mb-3 fw-bold">

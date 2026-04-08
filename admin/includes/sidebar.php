@@ -176,7 +176,7 @@
 
                         <div class="collapse ps-4" id="usersMenu">
                             <a href="admins.php" class="submenu-item">
-                                Admins
+                                Admin
                             </a>
                             <a href="users.php" class="submenu-item">
                                 Users
@@ -287,3 +287,6 @@
 
                     </div>
                 </div>
+
+
+<?php include 'includes/footer.php'; ?>

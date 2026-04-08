@@ -3,7 +3,32 @@
      include 'includes/adminheader.php'; 
 
      include 'includes/sidebar.php'; 
-     
+
+    require_once "../config/database.php";
+
+    $db = (new Database())->connect();
+
+    // TOTAL USERS
+    $totalUsers = $db->query("SELECT COUNT(*) FROM users")->fetchColumn();
+
+    // AGENTS
+    $totalAgents = $db->query("SELECT COUNT(*) FROM users WHERE role = 'agent'")->fetchColumn();
+
+    // BUILDERS
+    $totalBuilders = $db->query("SELECT COUNT(*) FROM users WHERE role = 'builder'")->fetchColumn();
+
+    // PROPERTIES
+    $totalProperties = $db->query("SELECT COUNT(*) FROM properties")->fetchColumn();
+
+    // FOR SALE
+    $totalSales = $db->query("SELECT COUNT(*) FROM properties WHERE status = 'For Sale'")->fetchColumn();
+
+    // FOR RENT
+    $totalRentals = $db->query("SELECT COUNT(*) FROM properties WHERE status = 'For Rent'")->fetchColumn();
+    
+    $stmt = $db->prepare("SELECT * FROM users ORDER BY created_at DESC LIMIT 5");
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
@@ -13,7 +38,7 @@
                 <div class="row g-4 mb-4">
 
                     <!-- Active Users -->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col-sm-6 col-lg-4">
                         <div class="card shadow-sm h-100 border-0">
                             <div class="card-body position-relative">
                                 
@@ -21,14 +46,14 @@
                                     <i class="bi bi-people-fill"></i>
                                 </div>
 
-                                <h3 class="fw-semibold">6</h3>
+                                <h3 class="fw-semibold"><?php echo $totalUsers; ?></h3>
                                 <p class="text-muted fw-light mb-0">Active Users</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Agents -->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col-sm-6 col-lg-4">
                         <div class="card shadow-sm h-100 border-0">
                             <div class="card-body position-relative">
 
@@ -36,14 +61,14 @@
                                     <i class="bi bi-person-badge-fill"></i>
                                 </div>
 
-                                <h3 class="fw-semibold">4</h3>
+                                <h3 class="fw-semibold"><?php echo $totalAgents; ?></h3>
                                 <p class="text-muted fw-light mb-0">Agents</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Builder -->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col-sm-6 col-lg-4">
                         <div class="card shadow-sm h-100 border-0">
                             <div class="card-body position-relative">
 
@@ -51,14 +76,14 @@
                                     <i class="bi bi-hammer"></i>
                                 </div>
 
-                                <h3 class="fw-semibold">2</h3>
+                                <h3 class="fw-semibold"><?php echo $totalBuilders; ?></h3>
                                 <p class="text-muted fw-light mb-0">Builder</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Properties -->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col-sm-6 col-lg-4">
                         <div class="card shadow-sm h-100 border-0">
                             <div class="card-body position-relative">
 
@@ -66,44 +91,14 @@
                                     <i class="bi bi-house-door-fill"></i>
                                 </div>
 
-                                <h3 class="fw-semibold">3</h3>
+                                <h3 class="fw-semibold"><?php echo $totalProperties; ?></h3>
                                 <p class="text-muted fw-light mb-0">Properties</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Apartments -->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card shadow-sm h-100 border-0">
-                            <div class="card-body position-relative">
-
-                                <div class="icon-circle bg-danger-subtle text-danger">
-                                    <i class="bi bi-building"></i>
-                                </div>
-
-                                <h3 class="fw-semibold">6</h3>
-                                <p class="text-muted fw-light mb-0">No. of Apartments</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Buildings -->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card shadow-sm h-100 border-0">
-                            <div class="card-body position-relative">
-
-                                <div class="icon-circle bg-secondary-subtle text-secondary">
-                                    <i class="bi bi-buildings-fill"></i>
-                                </div>
-
-                                <h3 class="fw-semibold">6</h3>
-                                <p class="text-muted fw-light mb-0">No. of Buildings</p>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- On Sales -->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col-sm-6 col-lg-4">
                         <div class="card shadow-sm h-100 border-0">
                             <div class="card-body position-relative">
 
@@ -111,14 +106,14 @@
                                     <i class="bi bi-cash-coin"></i>
                                 </div>
 
-                                <h3 class="fw-semibold">6</h3>
+                                <h3 class="fw-semibold"><?php echo $totalSales; ?></h3>
                                 <p class="text-muted fw-light mb-0">On Sales</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- On Rentals -->
-                    <div class="col-sm-6 col-lg-3">
+                    <div class="col-sm-6 col-lg-4">
                         <div class="card shadow-sm h-100 border-0">
                             <div class="card-body position-relative">
 
@@ -126,7 +121,7 @@
                                     <i class="bi bi-key-fill"></i>
                                 </div>
 
-                                <h3 class="fw-semibold">6</h3>
+                                <h3 class="fw-semibold"><?php echo $totalRentals; ?></h3>
                                 <p class="text-muted fw-light mb-0">On Rentals</p>
                             </div>
                         </div>
@@ -143,10 +138,12 @@
                         <!-- Header -->
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h5 class="fw-semibold mb-0">Recent Users</h5>
-                            <button class="btn btn-sm btn-outline-primary">
+                            <!-- <button class="btn btn-sm btn-outline-primary">
                                 View All
-                            </button>
+                            </button> -->
                         </div>
+
+                        
 
                         <div class="table-responsive">
                             <table class="table align-middle mb-0">
@@ -162,53 +159,39 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr>
-                                        <td class="fw-semibold">1</td>
-                                        <td>John Doe</td>
-                                        <td class="text-muted">john.doe@example.com</td>
-                                        <td>
-                                            <span class="badge rounded-pill bg-primary-subtle text-primary">
-                                                <i class="bi bi-shield-lock-fill me-1"></i>
-                                                Admin
-                                            </span>
-                                        </td>
-                                        <td class="text-muted">29 May 2025</td>
-                                        <td class="text-end">
-                                            <i class="bi bi-three-dots-vertical text-muted"></i>
-                                        </td>
-                                    </tr>
+                                    <?php foreach($users as $index => $user): ?>
 
-                                    <tr>
-                                        <td class="fw-semibold">2</td>
-                                        <td>Jane Smith</td>
-                                        <td class="text-muted">jane.smith@example.com</td>
-                                        <td>
-                                            <span class="badge rounded-pill bg-warning-subtle text-warning">
-                                                <i class="bi bi-pencil-square me-1"></i>
-                                                Editor
-                                            </span>
-                                        </td>
-                                        <td class="text-muted">29 Mar 2025</td>
-                                        <td class="text-end">
-                                            <i class="bi bi-three-dots-vertical text-muted"></i>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td class="fw-semibold"><?php echo $index + 1; ?></td>
+                                            <td><?php echo htmlspecialchars($user['name']); ?></td>
+                                            <td class="text-muted"><?php echo htmlspecialchars($user['email']); ?></td>
 
-                                    <tr>
-                                        <td class="fw-semibold">3</td>
-                                        <td>Emily Johnson</td>
-                                        <td class="text-muted">emily.johnson@example.com</td>
-                                        <td>
-                                            <span class="badge rounded-pill bg-secondary-subtle text-secondary">
-                                                <i class="bi bi-person me-1"></i>
-                                                User
-                                            </span>
-                                        </td>
-                                        <td class="text-muted">29 May 2025</td>
-                                        <td class="text-end">
-                                            <i class="bi bi-three-dots-vertical text-muted"></i>
-                                        </td>
-                                    </tr>
+                                            <td>
+                                                <?php if ($user['role'] === 'agent'): ?>
+                                                    <span class="badge rounded-pill bg-primary-subtle text-primary">
+                                                        <i class="bi bi-shield-lock-fill me-1"></i>
+                                                        Agent
+                                                    </span>
+
+                                                <?php elseif ($user['role'] === 'builder'): ?>
+                                                    <span class="badge rounded-pill bg-warning-subtle text-warning">
+                                                        <i class="bi bi-pencil-square me-1"></i>
+                                                        Builder
+                                                    </span>
+
+                                                <?php else: ?>
+                                                    <span class="badge rounded-pill bg-secondary-subtle text-secondary">
+                                                        <i class="bi bi-person me-1"></i>
+                                                        User
+                                                    </span>
+                                                <?php endif; ?>
+                                            </td>
+
+                                            <td class="text-muted"><?php echo date("d M Y", strtotime($user['created_at'])); ?></td>
+                                            
+                                        </tr>
+
+                                    <?php endforeach; ?>
 
                                 </tbody>
                             </table>
