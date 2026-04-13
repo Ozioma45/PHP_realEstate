@@ -1,7 +1,23 @@
+<?php 
+    
+        include 'includes/adminheader.php'; 
+        include 'includes/sidebar.php'; 
 
-    <?php include 'includes/adminheader.php'; ?>
+        require_once "../config/database.php";
+        $db = (new Database())->connect();   
 
-    <?php include 'includes/sidebar.php'; ?>
+        $page = $_GET['page'] ?? 1;
+        $limit = $_GET['limit'] ?? 10;
+        $offset = ($page - 1) * $limit;
+
+        // total users
+        $total = $db->query("SELECT COUNT(*) FROM admins")->fetchColumn();
+        $pages = ceil($total / $limit);
+
+        $stmt = $db->prepare("SELECT * FROM admins LIMIT $limit OFFSET $offset");
+        $stmt->execute();
+        $admins = $stmt->fetchAll();
+    ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
                 <h4 class="mb-3 fw-bold">
@@ -19,6 +35,11 @@
                             <h5 class="fw-semibold mb-0">Admin List</h5>
 
                            <div class="d-flex align-items-center gap-3 flex-wrap">
+
+                           <!-- ADD ADMIN BUTTON -->
+                            <a href="add-admin.php" class="btn btn-primary btn-sm">
+                                <i class="bi bi-plus-circle me-1"></i> Add Admin
+                            </a>
 
                              <div class="position-relative">
                                 <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
@@ -53,44 +74,21 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr>
-                                        <td class="fw-semibold">1</td>
-                                        <td>John Doe</td>
-                                        <td class="text-muted">john.doe@example.com</td>
-                                        <td class="text-muted">
-                                            08166365570
-                                        </td>
-                                        <td class="text-muted">29 May 2025</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-danger fw-bold">DELETE</button>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($admins as $index => $admin): ?>
 
-                                    <tr>
-                                        <td class="fw-semibold">2</td>
-                                        <td>Jane Smith</td>
-                                        <td class="text-muted">jane.smith@example.com</td>
-                                        <td class="text-muted">
-                                            09011921098
-                                        </td>
-                                        <td class="text-muted">29 Mar 2025</td>
-                                        <td >
-                                            <button class="btn btn-sm btn-danger fw-bold">DELETE</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="fw-semibold">3</td>
-                                        <td>Emily Johnson</td>
-                                        <td class="text-muted">emily.johnson@example.com</td>
-                                        <td class="text-muted">
-                                            08123456789
-                                        </td>
-                                        <td class="text-muted">29 May 2025</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-danger fw-bold">DELETE</button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td class="fw-semibold"><?php echo $index + 1; ?></td>
+                                            <td><?php echo htmlspecialchars($admin['name']); ?></td>
+                                            <td class="text-muted"><?php echo htmlspecialchars($admin['email']); ?></td>
+                                            <td class="text-muted">
+                                                <?php echo htmlspecialchars($admin['phone']); ?>
+                                            </td>
+                                            <td class="text-muted"><?php echo htmlspecialchars($admin['created_at']); ?></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-danger fw-bold">DELETE</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
 
                                 </tbody>
                             </table>
