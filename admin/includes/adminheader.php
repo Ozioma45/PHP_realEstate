@@ -1,4 +1,14 @@
- <!DOCTYPE html>
+<?php
+session_start();
+
+// check if admin is logged in
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <head>
