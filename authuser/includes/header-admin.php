@@ -129,6 +129,50 @@ $adminName = $_SESSION['admin_name'] ?? "Administrator";
         .dropdown-menu {
             z-index: 2000;
         }
+
+        .sidebar a[aria-expanded="true"] i.bi-chevron-down {
+            transform: rotate(180deg);
+            transition: 0.3s;
+        }
+
+        .sidebar a,
+        .sidebar-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px 12px;
+            color: #9ca3af;
+            text-decoration: none;
+            background: none;
+            border: none;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover,
+        .sidebar-toggle:hover {
+            background: #1f2937;
+            color: #fff;
+        }
+
+        .submenu {
+            padding-left: 15px;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 8px 10px;
+            font-size: 14px;
+        }
+
+        .sidebar-toggle i:last-child {
+            transition: 0.3s;
+        }
+
+        .sidebar-toggle[aria-expanded="true"] i:last-child {
+            transform: rotate(180deg);
+        }
     </style>
     
     </head>
@@ -206,8 +250,5 @@ $adminName = $_SESSION['admin_name'] ?? "Administrator";
 
         </header>
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    </body>
-</html>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -1,292 +1,165 @@
-<div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body p-4 bg-dark">
-            <div class="sidebar">
-                
-                        <!-- Home -->
-                        <a href="dashboard.php" class="active">
-                            <i class="bi bi-house-fill"></i>
-                            Home
-                        </a>
+<div class="container-fluid">
+    <div class="row">
 
-                        <!-- Users Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#usersMenu"
-                        role="button"
-                        aria-expanded="false">
-
-                            <span>
-                                <i class="bi bi-people-fill"></i>
-                                Users
-                            </span>
-
-                            <i class="bi bi-chevron-right small"></i>
-                        </a>
-
-                        <div class="collapse ps-4" id="usersMenu">
-                            <a href="#" class="submenu-item">
-                                Admins
-                            </a>
-                            <a href="#" class="submenu-item">
-                                Users
-                            </a>
-                            <a href="#" class="submenu-item">
-                                Agents
-                            </a>
-                            <a href="#" class="submenu-item">
-                                Builders
-                            </a>
-                        </div>
-
-                        <!-- City and State Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#settingsMenu"
-                        role="button"
-                        aria-expanded="false">
-
-                            <span>
-                                <i class="bi bi-gear-fill"></i>
-                                City & State
-                            </span>
-
-                            <i class="bi bi-chevron-right small"></i>
-                        </a>
-
-                        <div class="collapse ps-4" id="settingsMenu">
-                            <a href="#" class="submenu-item">
-                                City
-                            </a>
-                            <a href="#" class="submenu-item">
-                                State
-                            </a>
-                        </div>
-
-                        <!-- Properties Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#propertiesMenu"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="propertiesMenu">
-
-                            <span>
-                                <i class="bi bi-house-door-fill"></i>
-                                Properties
-                            </span>
-
-                            <i class="bi bi-chevron-right small"></i>
-                        </a>
-
-                        <div class="collapse ps-4" id="propertiesMenu">
-                            <a href="#" class="submenu-item">
-                                Add Property
-                            </a>
-                            <a href="#" class="submenu-item">
-                                View Properties
-                            </a>
-                        </div>
-
-                        <!-- Contact and feedback Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#contactMenu"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="contactMenu">
-
-                            <span>
-                                <i class="bi bi-chat-dots-fill"></i>
-                                Contacts & Feedback
-                            </span>
-
-                            <i class="bi bi-chevron-right small"></i>
-                        </a>
-
-                        <div class="collapse ps-4" id="contactMenu">
-                            <a href="#" class="submenu-item">
-                                Contact
-                            </a>
-                            <a href="#" class="submenu-item">
-                                Feedback
-                            </a>
-                        </div>
-
-                        <!-- About page Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#aboutMenu"
-                        role="button"
-                        aria-expanded="false">
-
-                            <span>
-                                <i class="bi bi-info-circle-fill"></i>
-                                About
-                            </span>
-
-                            <i class="bi bi-chevron-right small"></i>
-                        </a>
-
-                        <div class="collapse ps-4" id="aboutMenu">
-                            <a href="#" class="submenu-item">
-                                Add About
-                            </a>
-                            <a href="#" class="submenu-item">
-                                View About
-                            </a>
-                        </div>
-
-                        <!-- Logout -->
-                        <a href="#">
-                            <i class="bi bi-box-arrow-right"></i>
-                            Logout
-                        </a>
-            </div>
-        </div>
+<!-- MOBILE SIDEBAR -->
+<div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="sidebarMenu">
+    <div class="offcanvas-header">
+        <h5>Menu</h5>
+        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="d-none d-md-block col-md-3 col-lg-2 bg-dark sidebar">
-                    <div>
-                        <!-- Home -->
-                        <a href="dashboard.php" class="active">
-                            <i class="bi bi-house-fill"></i>
-                            Home
-                        </a>
+    <div class="offcanvas-body bg-dark sidebar">
 
-                        <!-- Users Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#usersMenu"
-                        role="button"
-                        aria-expanded="false">
+        <!-- Home -->
+        <a href="dashboard.php" class="active">
+            <i class="bi bi-house-fill"></i> Home
+        </a>
 
-                            <span>
-                                <i class="bi bi-people-fill"></i>
-                                Users
-                            </span>
+        <!-- Users -->
+        <button class="sidebar-toggle"
+            data-bs-toggle="collapse"
+            data-bs-target="#usersMenuMobile">
+            <span><i class="bi bi-people-fill"></i> Users</span>
+            <i class="bi bi-chevron-down"></i>
+        </button>
 
-                            <i class="bi bi-chevron-down small"></i>
-                        </a>
+        <div class="collapse submenu" id="usersMenuMobile" data-bs-parent="#sidebarMenu">
+            <a href="admins.php">Admins</a>
+            <a href="users.php">Users</a>
+            <a href="agents.php">Agents</a>
+            <a href="builders.php">Builders</a>
+        </div>
 
-                        <div class="collapse ps-4" id="usersMenu">
-                            <a href="admins.php" class="submenu-item">
-                                Admin
-                            </a>
-                            <a href="users.php" class="submenu-item">
-                                Users
-                            </a>
-                            <a href="agents.php" class="submenu-item">
-                                Agents
-                            </a>
-                            <a href="builders.php" class="submenu-item">
-                                Builders
-                            </a>
-                        </div>
+        <!-- City & State -->
+        <button class="sidebar-toggle"
+            data-bs-toggle="collapse"
+            data-bs-target="#stateMenuMobile">
+            <span><i class="bi bi-gear-fill"></i> City & State</span>
+            <i class="bi bi-chevron-down"></i>
+        </button>
 
-                        <!-- City and State Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#settingsMenu"
-                        role="button"
-                        aria-expanded="false">
+        <div class="collapse submenu" id="stateMenuMobile" data-bs-parent="#sidebarMenu">
+            <a href="city.php">City</a>
+            <a href="state.php">State</a>
+        </div>
 
-                            <span>
-                                <i class="bi bi-gear-fill"></i>
-                                City & State
-                            </span>
+        <!-- Properties -->
+        <button class="sidebar-toggle"
+            data-bs-toggle="collapse"
+            data-bs-target="#propertyMenuMobile">
+            <span><i class="bi bi-house-door-fill"></i> Properties</span>
+            <i class="bi bi-chevron-down"></i>
+        </button>
 
-                            <i class="bi bi-chevron-down small"></i>
-                        </a>
+        <div class="collapse submenu" id="propertyMenuMobile" data-bs-parent="#sidebarMenu">
+            <a href="propertyadd.php">Add Property</a>
+            <a href="propertyview.php">View Properties</a>
+        </div>
 
-                        <div class="collapse ps-4" id="settingsMenu">
-                            <a href="city.php" class="submenu-item">
-                                City
-                            </a>
-                            <a href="state.php" class="submenu-item">
-                                State
-                            </a>
-                        </div>
+        <!-- Contact -->
+        <button class="sidebar-toggle"
+            data-bs-toggle="collapse"
+            data-bs-target="#contactMenuMobile">
+            <span><i class="bi bi-chat-dots-fill"></i> Contacts</span>
+            <i class="bi bi-chevron-down"></i>
+        </button>
 
-                        <!-- Properties Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#propertiesMenu"
-                        role="button"
-                        aria-expanded="false">
+        <div class="collapse submenu" id="contactMenuMobile" data-bs-parent="#sidebarMenu">
+            <a href="contactlist.php">Contact</a>
+            <a href="feedback.php">Feedback</a>
+        </div>
 
-                            <span>
-                                <i class="bi bi-house-door-fill"></i>
-                                Properties
-                            </span>
+        <!-- About -->
+        <button class="sidebar-toggle"
+            data-bs-toggle="collapse"
+            data-bs-target="#aboutMenuMobile">
+            <span><i class="bi bi-info-circle-fill"></i> About</span>
+            <i class="bi bi-chevron-down"></i>
+        </button>
 
-                            <i class="bi bi-chevron-down small"></i>
-                        </a>
+        <div class="collapse submenu" id="aboutMenuMobile" data-bs-parent="#sidebarMenu">
+            <a href="about-add.php">Add About</a>
+            <a href="about-view.php">View About</a>
+        </div>
 
-                        <div class="collapse ps-4" id="propertiesMenu">
-                            <a href="propertyadd.php" class="submenu-item">
-                                Add Property
-                            </a>
-                            <a href="propertyview.php" class="submenu-item">
-                                View Properties
-                            </a>
-                        </div>
+    </div>
+</div>
 
-                        <!-- Contact and feedback Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#contactMenu"
-                        role="button"
-                        aria-expanded="false">
 
-                            <span>
-                                <i class="bi bi-chat-dots-fill"></i>
-                                Contacts & Feedback
-                            </span>
+<!-- DESKTOP SIDEBAR -->
+<div class="d-none d-md-block col-md-2 col-lg-2 bg-dark sidebar" id="desktopSidebar">
 
-                            <i class="bi bi-chevron-down small"></i>
-                        </a>
+    <a href="dashboard.php" class="active">
+        <i class="bi bi-house-fill"></i> Home
+    </a>
 
-                        <div class="collapse ps-4" id="propertiesMenu">
-                            <a href="contactlist.php" class="submenu-item">
-                                Contact
-                            </a>
-                            <a href="feedback.php" class="submenu-item">
-                                Feedback
-                            </a>
-                        </div>
+    <!-- Users -->
+    <button class="sidebar-toggle"
+        data-bs-toggle="collapse"
+        data-bs-target="#usersMenu">
+        <span><i class="bi bi-people-fill"></i> Users</span>
+        <i class="bi bi-chevron-down"></i>
+    </button>
 
-                        <!-- About page Dropdown -->
-                        <a class="d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse"
-                        href="#aboutMenu"
-                        role="button"
-                        aria-expanded="false">
+    <div class="collapse submenu" id="usersMenu" data-bs-parent="#desktopSidebar">
+        <a href="admins.php">Admins</a>
+        <a href="users.php">Users</a>
+        <a href="agents.php">Agents</a>
+        <a href="builders.php">Builders</a>
+    </div>
 
-                            <span>
-                                <i class="bi bi-info-circle-fill"></i>
-                                About
-                            </span>
+    <!-- City -->
+    <button class="sidebar-toggle"
+        data-bs-toggle="collapse"
+        data-bs-target="#stateMenu">
+        <span><i class="bi bi-gear-fill"></i> City & State</span>
+        <i class="bi bi-chevron-down"></i>
+    </button>
 
-                            <i class="bi bi-chevron-down small"></i>
-                        </a>
+    <div class="collapse submenu" id="stateMenu" data-bs-parent="#desktopSidebar">
+        <a href="city.php">City</a>
+        <a href="state.php">State</a>
+    </div>
 
-                        <div class="collapse ps-4" id="aboutMenu">
-                            <a href="about-add.php" class="submenu-item">
-                                Add About
-                            </a>
-                            <a href="about-view.php" class="submenu-item">
-                                View About
-                            </a>
-                        </div>
+    <!-- Properties -->
+    <button class="sidebar-toggle"
+        data-bs-toggle="collapse"
+        data-bs-target="#propertyMenu">
+        <span><i class="bi bi-house-door-fill"></i> Properties</span>
+        <i class="bi bi-chevron-down"></i>
+    </button>
 
-                    </div>
-                </div>
+    <div class="collapse submenu" id="propertyMenu" data-bs-parent="#desktopSidebar">
+        <a href="propertyadd.php">Add Property</a>
+        <a href="propertyview.php">View Properties</a>
+    </div>
 
+    <!-- Contact -->
+    <button class="sidebar-toggle"
+        data-bs-toggle="collapse"
+        data-bs-target="#contactMenu">
+        <span><i class="bi bi-chat-dots-fill"></i> Contacts</span>
+        <i class="bi bi-chevron-down"></i>
+    </button>
+
+    <div class="collapse submenu" id="contactMenu" data-bs-parent="#desktopSidebar">
+        <a href="contactlist.php">Contact</a>
+        <a href="feedback.php">Feedback</a>
+    </div>
+
+    <!-- About -->
+    <button class="sidebar-toggle"
+        data-bs-toggle="collapse"
+        data-bs-target="#aboutMenu">
+        <span><i class="bi bi-info-circle-fill"></i> About</span>
+        <i class="bi bi-chevron-down"></i>
+    </button>
+
+    <div class="collapse submenu" id="aboutMenu" data-bs-parent="#desktopSidebar">
+        <a href="about-add.php">Add About</a>
+        <a href="about-view.php">View About</a>
+    </div>
+
+</div>
 
 <?php include 'includes/footer.php'; ?>

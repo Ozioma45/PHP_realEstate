@@ -192,7 +192,7 @@
                 </div>
             
             </main>
+        </div>
     </div>
-
     
 <?php include 'includes/footer.php'; ?>

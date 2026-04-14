@@ -4,7 +4,7 @@
 
     <?php include 'includes/sidebar.php'; ?>
 
-            <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
+            <main class="col-md-9 ms-sm-auto col-lg-10">
                 <h4 class="mb-3 fw-bold">
                     Feedback List
                 </h4>
