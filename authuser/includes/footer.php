@@ -1,3 +1,19 @@
+<?php if (isset($_SESSION['success']) || isset($_SESSION['error'])): ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+Swal.fire({
+    icon: '<?php echo isset($_SESSION['success']) ? "success" : "error"; ?>',
+    title: '<?php echo isset($_SESSION['success']) ? "Success" : "Error"; ?>',
+    text: <?php echo json_encode($_SESSION['success'] ?? $_SESSION['error']); ?>,
+    confirmButtonColor: '#0d6efd'
+});
+</script>
+
+<?php unset($_SESSION['success'], $_SESSION['error']); ?>
+<?php endif; ?>
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 

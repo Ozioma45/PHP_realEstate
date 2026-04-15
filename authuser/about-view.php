@@ -1,8 +1,5 @@
-
-   
-    <?php include 'includes/header-admin.php'; ?>
-
-    <?php include 'includes/sidebar.php'; ?>
+<?php include 'includes/header-admin.php'; ?>
+<?php include 'includes/sidebar.php'; ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <h4 class="mb-3 fw-bold">

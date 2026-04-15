@@ -10,6 +10,26 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+require_once "../config/database.php";
+    $db = (new Database())->connect();   
+
+    if (!isset($_SESSION['admin_id'])) {
+        echo "Session error: Admin not logged in.";
+        exit;
+    }
+
+    $adminId = $_SESSION['admin_id'];
+
+    $stmt = $db->prepare("SELECT * FROM admins WHERE id = ?");
+    $stmt->execute([$adminId]);
+
+    $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$admin) {
+        echo "Admin not found.";
+        exit;
+    }
+
 // Optional: dynamic page title
 $pageTitle = $pageTitle ?? "Dashboard";
 
@@ -212,7 +232,7 @@ $adminName = $_SESSION['admin_name'] ?? "Administrator";
                         data-bs-toggle="dropdown"
                         aria-expanded="false">
 
-                            <img src="https://i.pravatar.cc/40"
+                            <img src="uploads/<?php echo $admin['image'] ?? 'default.jpg'; ?>"
                                 class="rounded-circle me-2"
                                 width="36"
                                 height="36"

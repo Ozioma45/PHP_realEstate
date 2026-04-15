@@ -18,7 +18,7 @@
 
             <!-- Form -->
             <form action="" method="POST" enctype="multipart/form-data">
-
+  
                 <!-- Title -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Title</label>

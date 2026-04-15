@@ -1,5 +1,12 @@
-<?php include 'includes/header-admin.php'; ?>
-<?php include 'includes/sidebar.php'; ?>
+    <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+    include 'includes/header-admin.php'; 
+    include 'includes/sidebar.php'; 
+
+    
+    ?>
 
 <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
 
@@ -13,10 +20,10 @@
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm border-0 text-center p-4 d-flex flex-column align-items-center">
 
-                <img src="https://i.pravatar.cc/40" class="rounded-circle mb-3" width="120" height="120" alt="Profile">
+                <img src="uploads/<?php echo $admin['image'] ?? 'default.jpg'; ?>" class="rounded-circle mb-3" width="120"  height="120" alt="Profile">
 
-                <h5 class="fw-semibold mb-1">Admin Name</h5>
-                <p class="text-muted mb-2">admin@example.com</p>
+                <h5 class="fw-semibold mb-1"><?= htmlspecialchars($admin['name']) ?></h5>
+                <p class="text-muted mb-2"><?= htmlspecialchars($admin['email']) ?></p>
 
                 <span class="badge bg-primary p-2">Administrator</span>
 
@@ -30,30 +37,30 @@
 
                     <h5 class="fw-semibold mb-4">Edit Profile</h5>
 
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="actions/update-profile.php" method="POST" enctype="multipart/form-data">
 
                         <!-- Name -->
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Full Name</label>
-                            <input type="text" name="name" class="form-control" value="Admin Name">
+                            <input type="text" name="name" class="form-control" value="<?= htmlspecialchars($admin['name']) ?>">
                         </div>
 
                         <!-- Email -->
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Email</label>
-                            <input type="email" name="email" class="form-control" value="admin@example.com">
+                            <input type="email" name="email" class="form-control" value="<?= htmlspecialchars($admin['email']) ?>">
                         </div>
 
-                        <!-- Username -->
+                        <!-- Phone -->
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Username</label>
-                            <input type="text" name="username" class="form-control" value="admin">
+                            <label class="form-label fw-semibold">Phone</label>
+                            <input type="text" name="phone" class="form-control" value="<?= htmlspecialchars($admin['phone']) ?>">
                         </div>
 
                         <!-- Profile Image -->
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Profile Image</label>
-                            <input type="file" name="image" class="form-control">
+                            <input type="file" name="image" class="form-control" value="<?= htmlspecialchars($admin['image']) ?>">
                         </div>
 
                         <!-- Password -->
