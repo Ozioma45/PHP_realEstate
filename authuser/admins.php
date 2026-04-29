@@ -85,7 +85,11 @@
                                             </td>
                                             <td class="text-muted"><?php echo htmlspecialchars($admin['created_at']); ?></td>
                                             <td>
-                                                <button class="btn btn-sm btn-danger fw-bold">DELETE</button>
+                                                 <a href="actions/delete-admin.php?id=<?php echo $admin['id']; ?>" 
+                                                    class="btn btn-sm btn-danger fw-bold"
+                                                    onclick="return confirm('Are you sure you want to delete this admin?');">
+                                                    DELETE
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
