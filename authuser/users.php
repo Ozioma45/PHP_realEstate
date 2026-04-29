@@ -98,13 +98,6 @@
                                                             </a>
                                                         </li>
 
-                                                        <li>
-                                                            <a class="dropdown-item d-flex align-items-center gap-2" href="actions/suspend-user.php?id=<?php echo $user['id']; ?>">
-                                                                <i class="bi bi-slash-circle"></i>
-                                                                Suspend
-                                                            </a>
-                                                        </li>
-
                                                         <li><hr class="dropdown-divider"></li>
 
                                                         <li>

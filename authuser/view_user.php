@@ -46,9 +46,9 @@
                                     </span>
 
                                     <div class="d-grid">
-                                        <button class="btn btn-primary">
-                                            <a href="edit_user.php?id=<?= $user['id'] ?>" class="text-white text-decoration-none">Edit Profile</a>
-                                        </button>
+                                        <a href="edit_user.php?id=<?= $user['id'] ?>" class="btn btn-primary">
+                                            Edit Profile
+                                        </a>
                                     </div>
 
                                 </div>

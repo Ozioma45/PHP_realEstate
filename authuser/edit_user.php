@@ -1,8 +1,34 @@
 
    
-    <?php include 'includes/header-admin.php'; ?>
+    <?php 
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
 
-    <?php include 'includes/sidebar.php'; ?>
+
+        include 'includes/header-admin.php'; 
+        include 'includes/sidebar.php'; 
+
+        require_once "../config/database.php";
+        $db = (new Database())->connect();
+
+        
+
+        $id = $_GET['id'] ?? null;
+
+        if (!$id) {
+            die("User ID not found");
+        }
+
+        $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->execute([$id]);
+        $user = $stmt->fetch();
+
+        if (!$user) {
+            die("User not found");
+        }
+
+    ?>
+
 
             <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
                 <h4 class="mb-3 fw-bold">
@@ -21,18 +47,16 @@
 
                 <div class="card-body">
 
-                    <img src="https://i.pravatar.cc/40"
+                    <img src="../uploads/<?php echo $user['image'] ?? 'default.jpg'; ?>"
                          class="rounded-circle mb-3"
                          width="120"
                          height="120">
 
-                    <h6 class="fw-semibold">Profile Photo</h6>
+                    <h6 class="fw-semibold mb-1"><?= htmlspecialchars($user['name']) ?></h6>
 
-                    <p class="text-muted small">
-                        Upload a new profile picture
-                    </p>
+                    <p class="text-muted mb-2"><?= htmlspecialchars($user['email']) ?></p>
 
-                    <input type="file" class="form-control">
+                <span class="badge bg-primary p-2"><?= htmlspecialchars($user['role']) ?></span>
 
                 </div>
 
@@ -54,27 +78,16 @@
 
                 <div class="card-body">
 
-                    <form>
+                    <form action="actions/update-user.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">
 
                         <!-- Personal Info -->
                         <h6 class="text-muted mb-3">Personal Information</h6>
 
-                        <div class="row mb-3">
-
-                            <div class="col-md-6">
-                                <label class="form-label">First Name</label>
-                                <input type="text"
-                                       class="form-control"
-                                       value="Jane">
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label">Last Name</label>
-                                <input type="text"
-                                       class="form-control"
-                                       value="Smith">
-                            </div>
-
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Full Name</label>
+                            <input type="text" name="name" class="form-control" value="<?= htmlspecialchars($user['name']) ?>">
                         </div>
 
 
@@ -82,7 +95,8 @@
                             <label class="form-label">Email Address</label>
                             <input type="email"
                                    class="form-control"
-                                   value="jane.smith@example.com">
+                                   name="email"
+                                   value="<?= htmlspecialchars($user['email']) ?>">
                         </div>
 
 
@@ -90,7 +104,8 @@
                             <label class="form-label">Phone Number</label>
                             <input type="text"
                                    class="form-control"
-                                   value="09011921098">
+                                   name="phone"
+                                   value="<?= htmlspecialchars($user['phone']) ?>">
                         </div>
 
 
@@ -104,28 +119,28 @@
                             <div class="col-md-6">
                                 <label class="form-label">Role</label>
 
-                                <select class="form-select">
-
-                                    <option>Admin</option>
-                                    <option>Editor</option>
-                                    <option>User</option>
-
-                                </select>
+                                    <select name="role" class="form-select">
+                                        <option value="user" <?= $user['role'] == 'user' ? 'selected' : '' ?>>User</option>
+                                        <option value="agent" <?= $user['role'] == 'agent' ? 'selected' : '' ?>>Agent</option>
+                                    </select>
 
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label">Status</label>
 
-                                <select class="form-select">
-
-                                    <option>Active</option>
-                                    <option>Suspended</option>
-
-                                </select>
+                                    <select name="status" class="form-select">
+                                        <option value="active" <?= $user['status'] == 'active' ? 'selected' : '' ?>>Active</option>
+                                        <option value="suspended" <?= $user['status'] == 'suspended' ? 'selected' : '' ?>>Suspended</option>
+                                    </select>
 
                             </div>
 
+                        </div>
+
+                        <div class="mb-3">
+                                <label class="form-label">Profile Image</label>
+                                <input type="file" name="image" class="form-control">
                         </div>
 
 
@@ -138,16 +153,12 @@
 
                             <div class="col-md-6">
                                 <label class="form-label">New Password</label>
-                                <input type="password"
-                                       class="form-control"
-                                       placeholder="Enter new password">
+                                <input type="password" name="password" class="form-control" placeholder="New password">
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label">Confirm Password</label>
-                                <input type="password"
-                                       class="form-control"
-                                       placeholder="Confirm password">
+                                <input type="password" name="confirm_password" class="form-control" placeholder="Confirm password"> 
                             </div>
 
                         </div>
