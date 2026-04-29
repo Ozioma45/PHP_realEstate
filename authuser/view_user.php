@@ -9,6 +9,10 @@
         $stmt->execute([$id]);
         $user = $stmt->fetch();
 
+        // Count properties added by this user
+        $stmt = $db->prepare("SELECT COUNT(*) FROM properties WHERE user_id = ?");
+        $stmt->execute([$id]);
+        $totalProperties = $stmt->fetchColumn();
     ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 py-4">
@@ -28,14 +32,14 @@
 
                                 <div class="card-body">
 
-                                    <img src="https://i.pravatar.cc/40"
+                                    <img src="../uploads/<?php echo $user['image'] ?? 'default.jpg'; ?>" alt="Profile Image"
                                         class="rounded-circle mb-3"
                                         width="120"
                                         height="120">
 
-                                    <h5 class="fw-semibold mb-1">Jane Smith</h5>
+                                    <h5 class="fw-semibold mb-1"><?= htmlspecialchars($user['name']) ?></h5>
 
-                                    <p class="text-muted mb-2">jane.smith@example.com</p>
+                                    <p class="text-muted mb-2"><?= htmlspecialchars($user['email']) ?></p>
 
                                     <span class="badge bg-success-subtle text-success mb-3">
                                         Active
@@ -43,7 +47,7 @@
 
                                     <div class="d-grid">
                                         <button class="btn btn-primary">
-                                            <a href="edit_user.php" class="text-white text-decoration-none">Edit Profile</a>
+                                            <a href="edit_user.php?id=<?= $user['id'] ?>" class="text-white text-decoration-none">Edit Profile</a>
                                         </button>
                                     </div>
 
@@ -68,7 +72,7 @@
                                             Full Name
                                         </div>
                                         <div class="col-sm-8">
-                                            Jane Smith
+                                            <?= htmlspecialchars($user['name']) ?>
                                         </div>
                                     </div>
 
@@ -77,7 +81,7 @@
                                             Email
                                         </div>
                                         <div class="col-sm-8">
-                                            jane.smith@example.com
+                                            <?= htmlspecialchars($user['email']) ?>
                                         </div>
                                     </div>
 
@@ -86,7 +90,7 @@
                                             Phone
                                         </div>
                                         <div class="col-sm-8">
-                                            09011921098
+                                            <?= htmlspecialchars($user['phone']) ?>
                                         </div>
                                     </div>
 
@@ -96,7 +100,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <span class="badge bg-primary-subtle text-primary">
-                                                Admin
+                                                <?= htmlspecialchars($user['role']) ?>
                                             </span>
                                         </div>
                                     </div>
@@ -107,7 +111,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <span class="badge bg-success-subtle text-success">
-                                                Active
+                                                <?= htmlspecialchars($user['status']) ?>
                                             </span>
                                         </div>
                                     </div>
@@ -117,7 +121,7 @@
                                             Joined Date
                                         </div>
                                         <div class="col-sm-8">
-                                            29 Mar 2025
+                                            <?= date('d M Y', strtotime($user['created_at'])) ?>
                                         </div>
                                     </div>
 
@@ -136,19 +140,22 @@
 
                                     <ul class="list-group list-group-flush">
 
-                                        <li class="list-group-item d-flex justify-content-between">
+                                         <li class="list-group-item d-flex justify-content-between">
                                             Last Login
-                                            <span class="text-muted">Today, 09:40 AM</span>
+                                            <span class="text-muted">
+                                                <?php 
+                                                    echo isset($user['last_login']) && $user['last_login'] 
+                                                    ? date('d M Y, h:i A', strtotime($user['last_login'])) 
+                                                    : 'Not available';
+                                                ?>
+                                            </span>
                                         </li>
 
                                         <li class="list-group-item d-flex justify-content-between">
                                             Properties Added
-                                            <span class="text-muted">12</span>
-                                        </li>
-
-                                        <li class="list-group-item d-flex justify-content-between">
-                                            Account Created
-                                            <span class="text-muted">29 Mar 2025</span>
+                                            <span class="text-muted">
+                                                <?php echo $totalProperties; ?>
+                                            </span>
                                         </li>
 
                                     </ul>

@@ -57,6 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "DELETE FROM login_attempts WHERE email = :email"
         );
 
+        $update = $db->prepare("UPDATE users SET last_login = NOW() WHERE id = ?");
+        $update->execute([$user['id']]);
+
         $stmt->execute([':email' => $email]);
 
         exit;

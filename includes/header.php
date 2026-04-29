@@ -71,7 +71,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <button class="navbar-toggler">
                     <span>
-                        <i class="bi bi-person-circle fs-4"></i>
+                        <i class="bi bi-person-circle fs-4"></i>    
                     </span>
                 </button>
 
