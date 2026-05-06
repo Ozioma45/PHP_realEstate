@@ -89,10 +89,10 @@
                                                         <i class="bi bi-three-dots"></i>
                                                     </button>
 
-                                                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2">
+                                                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 p-2"   style="z-index: 99999; position: absolute;">>
 
                                                         <li>
-                                                            <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php?id=<?php echo $user['id']; ?>">
+                                                            <a class="dropdown-item d-flex align-items-center gap-2" href="view_user.php?id=<?php echo htmlspecialchars($user['id']); ?>">
                                                                 <i class="bi bi-person"></i>
                                                                 View Profile
                                                             </a>
@@ -101,9 +101,12 @@
                                                         <li><hr class="dropdown-divider"></li>
 
                                                         <li>
-                                                            <a class="dropdown-item text-danger d-flex align-items-center gap-2" href="actions/delete-user.php?id=<?php echo $user['id']; ?>" >
+
+                                                            <a href="actions/delete-user.php?id=<?php echo htmlspecialchars($user['id']); ?>" 
+                                                                class="dropdown-item text-danger d-flex align-items-center gap-2"
+                                                                onclick="return confirm('Are you sure you want to delete this user?');">
                                                                 <i class="bi bi-trash"></i>
-                                                                Delete
+                                                                DELETE
                                                             </a>
                                                         </li>
 

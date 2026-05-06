@@ -11,7 +11,7 @@
     <div class="offcanvas-body bg-dark sidebar">
 
         <!-- Home -->
-        <a href="dashboard.php" class="active">
+        <a href="dashboard.php" class="active sidebar-toggle">
             <i class="bi bi-house-fill"></i> Home
         </a>
 
@@ -89,7 +89,7 @@
 <!-- DESKTOP SIDEBAR -->
 <div class="d-none d-md-block col-md-2 col-lg-2 bg-dark sidebar" id="desktopSidebar">
 
-    <a href="dashboard.php" class="active">
+    <a href="dashboard.php" class="active sidebar-toggle">
         <i class="bi bi-house-fill"></i> Home
     </a>
 
@@ -108,7 +108,7 @@
         <a href="builders.php">Builders</a>
     </div>
 
-    <!-- City -->
+    <!-- City & State -->
     <button class="sidebar-toggle"
         data-bs-toggle="collapse"
         data-bs-target="#stateMenu">
